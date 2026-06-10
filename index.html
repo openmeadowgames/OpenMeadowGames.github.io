@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Open Meadow Games</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest:   #2C4A2E;
+      --gold:     #C8A84B;
+      --cream:    #F2EDE4;
+      --mist:     #8FA89C;
+      --bark:     #5C3D2E;
+      --light:    #FAFAF7;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--forest);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 2.5rem;
+      background: rgba(242,237,228,0.88);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(44,74,46,0.1);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--forest);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--gold); }
+    nav ul {
+      list-style: none;
+      display: flex; gap: 2rem;
+    }
+    nav ul a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--forest);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+    nav ul a:hover { opacity: 1; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      padding: 6rem 2rem 0;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, #e8f0e9 0%, var(--cream) 60%);
+    }
+
+    .hero-eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--mist);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      line-height: 1.05;
+      color: var(--forest);
+      margin-bottom: 0.3em;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-tagline {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 300;
+      color: var(--bark);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 0.85rem 2.2rem;
+      background: var(--forest);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .hero-cta:hover { background: var(--bark); transform: translateY(-2px); }
+
+    /* Meadow scene */
+    .meadow-scene {
+      width: 100%;
+      margin-top: 3rem;
+      flex-shrink: 0;
+      line-height: 0;
+    }
+    .meadow-scene svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: rotate(-1.5deg); transform-origin: bottom center; }
+      50%       { transform: rotate(1.5deg);  transform-origin: bottom center; }
+    }
+    .sway-slow  { animation: sway 4s ease-in-out infinite; }
+    .sway-med   { animation: sway 3.2s ease-in-out infinite 0.4s; }
+    .sway-fast  { animation: sway 2.8s ease-in-out infinite 0.9s; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 6rem 2rem; }
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--forest);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--bark);
+      max-width: 620px;
+    }
+
+    /* ── ABOUT ── */
+    .about { background: var(--light); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-visual {
+      background: linear-gradient(135deg, #d4e8d4 0%, #a8c8a8 100%);
+      border-radius: 4px;
+      height: 320px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      color: var(--forest);
+      opacity: 0.6;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-visual::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(44,74,46,0.04) 10px,
+        rgba(44,74,46,0.04) 20px
+      );
+    }
+
+    /* ── GAMES ── */
+    .games { background: var(--cream); }
+    .game-card {
+      background: var(--light);
+      border: 1px solid rgba(44,74,46,0.12);
+      border-radius: 4px;
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2.5rem;
+      align-items: center;
+      margin-top: 2.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .game-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(44,74,46,0.1);
+    }
+    .game-thumb {
+      background: linear-gradient(135deg, #c8e6c8 0%, #7fb97f 100%);
+      border-radius: 3px;
+      aspect-ratio: 1;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem;
+    }
+    .game-status {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      border-radius: 2px;
+      margin-bottom: 0.8rem;
+    }
+    .game-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--forest);
+      margin-bottom: 0.6rem;
+    }
+    .game-card p { font-size: 0.95rem; margin-bottom: 1.2rem; }
+    .game-tags {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+    }
+    .tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+      background: rgba(44,74,46,0.08);
+      color: var(--forest);
+      border-radius: 2px;
+    }
+
+    /* ── CONNECT ── */
+    .connect {
+      background: var(--forest);
+      color: var(--cream);
+      text-align: center;
+    }
+    .connect h2 { color: var(--cream); }
+    .connect p { color: rgba(242,237,228,0.7); margin: 0 auto 2.5rem; }
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .social-link {
+      display: inline-block;
+      padding: 0.7rem 1.6rem;
+      border: 1px solid rgba(242,237,228,0.3);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .social-link:hover {
+      background: rgba(242,237,228,0.1);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .contact-email {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .contact-email:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1a2e1b;
+      color: rgba(242,237,228,0.4);
+      text-align: center;
+      padding: 1.8rem 2rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+    }
+    footer span { color: var(--gold); opacity: 0.7; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      nav ul { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-visual { height: 200px; }
+      .game-card { grid-template-columns: 1fr; }
+      .game-thumb { aspect-ratio: auto; height: 140px; }
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Open <em>Meadow</em> <span>Games</span></a>
+  <ul>
+    <li><a href="#about">Studio</a></li>
+    <li><a href="#games">Games</a></li>
+    <li><a href="#connect">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">An Indie Game Studio from British Columbia</p>
+  <h1>Open <em>Meadow</em><br>Games</h1>
+  <p class="hero-tagline">We make cozy games about wandering, discovering, and finding your place in the world.</p>
+  <a class="hero-cta" href="#games">See What We're Making</a>
+
+  <!-- Meadow Scene -->
+  <div class="meadow-scene">
+    <!-- Trees -->
+    <div class="tree" style="left:5%">
+      <div class="tree-canopy" style="border-left-width:28px;border-right-width:28px;border-bottom-width:60px;"></div>
+      <div class="tree-canopy" style="border-left-width:22px;border-right-width:22px;border-bottom-width:50px;margin-top:-20px;"></div>
+      <div class="tree-trunk" style="height:30px;"></div>
+    </div>
+    <div class="tree" style="left:9%">
+      <div class="tree-canopy" style="border-left-width:20px;border-right-width:20px;border-bottom-width:45px;"></div>
+      <div class="tree-canopy" style="border-left-width:16px;border-right-width:16px;border-bottom-width:38px;margin-top:-16px;"></div>
+      <div class="tree-trunk" style="height:22px;"></div>
+    </div>
+    <div class="tree" style="right:6%">
+      <div class="tree-canopy" style="border-left-width:30px;border-right-width:30px;border-bottom-width:65px;"></div>
+      <div class="tree-canopy" style="border-left-width:24px;border-right-width:24px;border-bottom-width:52px;margin-top:-22px;"></div>
+      <div class="tree-trunk" style="height:32px;"></div>
+    </div>
+    <div class="tree" style="right:11%">
+      <div class="tree-canopy" style="border-left-width:18px;border-right-width:18px;border-bottom-width:40px;"></div>
+      <div class="tree-canopy" style="border-left-width:14px;border-right-width:14px;border-bottom-width:34px;margin-top:-14px;"></div>
+      <div class="tree-trunk" style="height:20px;"></div>
+    </div>
+
+    <!-- Grass blades -->
+    <div class="grass" style="left:22%;height:28px;animation-delay:0.2s;"></div>
+    <div class="grass" style="left:24%;height:22px;animation-delay:0.5s;"></div>
+    <div class="grass" style="left:35%;height:32px;animation-delay:0.1s;"></div>
+    <div class="grass" style="left:37%;height:20px;animation-delay:0.7s;"></div>
+    <div class="grass" style="left:50%;height:26px;animation-delay:0.3s;"></div>
+    <div class="grass" style="left:52%;height:18px;animation-delay:0.6s;"></div>
+    <div class="grass" style="left:65%;height:30px;animation-delay:0.4s;"></div>
+    <div class="grass" style="left:67%;height:24px;animation-delay:0.8s;"></div>
+    <div class="grass" style="left:78%;height:22px;animation-delay:0.15s;"></div>
+
+    <!-- Wildflowers -->
+    <div class="flower" style="left:30%;bottom:55px;">
+      <div class="flower-head" style="background:#C8A84B;width:8px;height:8px;"></div>
+      <div class="flower-stem" style="height:26px;animation-delay:0.4s;"></div>
+    </div>
+    <div class="flower" style="left:45%;bottom:55px;">
+      <div class="flower-head" style="background:#d4785a;width:7px;height:7px;"></div>
+      <div class="flower-stem" style="height:20px;animation-delay:0.9s;"></div>
+    </div>
+    <div class="flower" style="left:60%;bottom:55px;">
+      <div class="flower-head" style="background:#C8A84B;width:9px;height:9px;"></div>
+      <div class="flower-stem" style="height:30px;animation-delay:0.2s;"></div>
+    </div>
+    <div class="flower" style="left:72%;bottom:55px;">
+      <div class="flower-head" style="background:#a8c8a8;width:7px;height:7px;"></div>
+      <div class="flower-stem" style="height:22px;animation-delay:0.6s;"></div>
+    </div>
+
+    <div class="ground"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid reveal">
+      <div>
+        <span class="section-label">The Studio</span>
+        <h2>Small studio,<br>big open world.</h2>
+        <p>Open Meadow Games is an independent game studio based in Port Coquitlam, British Columbia. We create cozy, exploration-forward games that feel like stepping into a warm, unhurried world.</p>
+        <br>
+        <p>Founded in 2026 by a solo developer with 17 years of game industry experience, we believe the best games give you space to breathe, wander, and discover something unexpected around every corner.</p>
+      </div>
+      <div class="about-visual">🌿</div>
+    </div>
+  </div>
+</section>
+
+<!-- GAMES -->
+<section class="games" id="games">
+  <div class="container reveal">
+    <span class="section-label">What We're Making</span>
+    <h2>Games from the meadow.</h2>
+
+    <div class="game-card">
+      <div class="game-thumb">🚐</div>
+      <div>
+        <span class="game-status">In Development</span>
+        <h3>Cozy Caravan</h3>
+        <p>A cozy stealth camping adventure. Pack your RV, find a quiet spot off the beaten path, and build a life one campsite at a time. Explore beautiful landscapes, meet quirky locals, and try not to get caught.</p>
+        <div class="game-tags">
+          <span class="tag">Cozy</span>
+          <span class="tag">Exploration</span>
+          <span class="tag">Stealth</span>
+          <span class="tag">Narrative</span>
+          <span class="tag">Indie</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONNECT -->
+<section class="connect" id="connect">
+  <div class="container reveal">
+    <span class="section-label" style="color:var(--gold)">Find Us</span>
+    <h2>Follow the journey.</h2>
+    <p>We share dev updates, behind the scenes moments, and the occasional campfire story. Come wander with us.</p>
+    <div class="social-links">
+      <a class="social-link" href="https://instagram.com/openmeadowgames" target="_blank">Instagram</a>
+      <a class="social-link" href="https://x.com/openmeadowgames" target="_blank">Twitter / X</a>
+      <a class="social-link" href="https://tiktok.com/@openmeadowgames" target="_blank">TikTok</a>
+      <a class="social-link" href="https://bsky.app/profile/openmeadowgames.bsky.social" target="_blank">Bluesky</a>
+      <a class="social-link" href="https://openmeadowgames.itch.io" target="_blank">itch.io</a>
+    </div>
+    <a class="contact-email" href="mailto:hello@openmeadowgames.com">hello@openmeadowgames.com</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>Open Meadow Games</span> — Port Coquitlam, British Columbia, Canada</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  reveals.forEach(r => observer.observe(r));
+</script>
+
+</body>
+</html>
