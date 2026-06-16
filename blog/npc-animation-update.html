@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pixel Art & NPC Animation Milestone — Open Meadow Games</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest:   #2C4A2E;
+      --gold:     #C8A84B;
+      --cream:    #F2EDE4;
+      --mist:     #8FA89C;
+      --bark:     #5C3D2E;
+      --light:    #FAFAF7;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--forest);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 2.5rem;
+      background: rgba(242,237,228,0.88);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(44,74,46,0.1);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--forest);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--gold); }
+    nav ul {
+      list-style: none;
+      display: flex; gap: 2rem;
+    }
+    nav ul a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--forest);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+    nav ul a:hover { opacity: 1; }
+
+    /* ── CONTENT ── */
+    article {
+      padding-top: 8rem;
+      padding-bottom: 6rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .article-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .article-header {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    article h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.2;
+      color: var(--forest);
+      margin-bottom: 0.8rem;
+    }
+
+    article h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .article-meta {
+      font-size: 0.9rem;
+      color: var(--mist);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+    }
+
+    .article-meta span {
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    article p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--bark);
+      margin-bottom: 1.5rem;
+    }
+
+    article h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--forest);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    article h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--forest);
+      margin-top: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    article img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin: 2rem 0;
+      display: block;
+    }
+
+    article ul, article ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--bark);
+    }
+
+    article li {
+      margin-bottom: 0.6rem;
+      line-height: 1.8;
+    }
+
+    .article-footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(44,74,46,0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      background: var(--forest);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .back-link:hover { background: var(--bark); }
+
+    .article-share {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .share-link {
+      display: inline-block;
+      padding: 0.6rem 1rem;
+      border: 1px solid rgba(44,74,46,0.2);
+      color: var(--forest);
+      text-decoration: none;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .share-link:hover {
+      background: rgba(44,74,46,0.05);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1a2e1b;
+      color: rgba(242,237,228,0.4);
+      text-align: center;
+      padding: 1.8rem 2rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+    }
+    footer span { color: var(--gold); opacity: 0.7; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      nav ul { display: none; }
+      article { padding-top: 6rem; }
+      .article-footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="/">Open <em>Meadow</em> <span>Games</span></a>
+  <ul>
+    <li><a href="/#about">Studio</a></li>
+    <li><a href="/#games">Games</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/#connect">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- ARTICLE -->
+<article>
+  <div class="article-container">
+    <header class="article-header">
+      <h1>Pixel Art & NPC <em>Animation</em> Milestone</h1>
+      <div class="article-meta">
+        <span>June 16, 2026</span>
+        <span>Development Update</span>
+      </div>
+    </header>
+
+    <p>This week was a major art and systems push. We've replaced the tilesets with a completely updated set, expanded our art concepts for multiple environments, and made significant progress on the Stealth Camping system that sits at the heart of Cozy Caravan.</p>
+
+    <h2>New Tilesets</h2>
+    <p>The original tileset was functional but didn't quite capture the cozy, lived-in feeling we wanted. The new set brings cohesion across all environments: pine forests, grasslands, rocky outcrops, and water features all feel like they belong to the same world.</p>
+    <p>We've added more variation in grass, trees, and ground details so no two campsites feel identical. The tiling is tighter, the palette is more refined, and the overall vibe is much closer to what we imagined.</p>
+
+    <h2>Environment Concepts</h2>
+    <p>Beyond the tilesets, we've been exploring different biome concepts to keep the gameplay fresh:</p>
+    <ul>
+      <li>Pine forests with dense tree coverage (your stealth advantage)</li>
+      <li>Open meadows (high visibility, higher risk)</li>
+      <li>Rocky terrain with natural cover spots</li>
+      <li>Lakeside campsites with unique resource gathering</li>
+      <li>Seasonal variants that affect gameplay and NPC behavior</li>
+    </ul>
+    <p>Each environment tells a story and presents different tactical challenges for the stealth camping loop.</p>
+
+    <h2>Stealth Camping System Deep Dive</h2>
+    <p>The core gameplay loop is coming together. Site selection now factors in visibility, proximity to water and resources, and NPC patrol patterns. Once you set up camp, you need to manage your stealth — noise discipline, fire management, and timing your activities around patrol schedules.</p>
+    <p>The system rewards patience and observation. Rushing means getting caught. Waiting means finding the perfect moment to gather resources, cook meals, or interact with NPCs without drawing attention.</p>
+
+    <h2>What's Next</h2>
+    <p>We're integrating the new tilesets fully and building out a few more environment types. The NPC roster is growing, and we're refining how their daily schedules interact with your camping patterns. The goal is a living, breathing world that reacts to your choices.</p>
+
+    <p>Thanks for following the journey. More updates soon.</p>
+
+    <footer class="article-footer">
+      <a href="/blog/" class="back-link">← Back to Blog</a>
+      <div class="article-share">
+        <a href="#" class="share-link">Share on Twitter</a>
+        <a href="#" class="share-link">Share on Instagram</a>
+      </div>
+    </footer>
+  </div>
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>Open Meadow Games</span> — Vancouver, British Columbia, Canada</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog — Open Meadow Games</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest:   #2C4A2E;
+      --gold:     #C8A84B;
+      --cream:    #F2EDE4;
+      --mist:     #8FA89C;
+      --bark:     #5C3D2E;
+      --light:    #FAFAF7;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--forest);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 2.5rem;
+      background: rgba(242,237,228,0.88);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(44,74,46,0.1);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--forest);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--gold); }
+    nav ul {
+      list-style: none;
+      display: flex; gap: 2rem;
+    }
+    nav ul a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--forest);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+    nav ul a:hover { opacity: 1; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      min-height: 50vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      padding: 6rem 2rem 0;
+      background: linear-gradient(180deg, #e8f0e9 0%, var(--cream) 60%);
+    }
+
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1.05;
+      color: var(--forest);
+      margin-bottom: 0.8rem;
+    }
+    .page-header h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .page-header-subtitle {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--bark);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
+
+    /* ── SECTION ── */
+    section { padding: 6rem 2rem; }
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--forest);
+      margin-bottom: 3rem;
+      line-height: 1.2;
+    }
+
+    /* ── BLOG POSTS ── */
+    .blog { background: var(--light); }
+
+    .blog-post {
+      background: var(--cream);
+      border: 1px solid rgba(44,74,46,0.12);
+      border-radius: 4px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2.5rem;
+      align-items: start;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .blog-post:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(44,74,46,0.1);
+    }
+
+    .blog-thumb {
+      background: linear-gradient(135deg, #d4e8d4 0%, #a8c8a8 100%);
+      border-radius: 3px;
+      aspect-ratio: 1;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem;
+      flex-shrink: 0;
+    }
+
+    .blog-post h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--forest);
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+
+    .blog-date {
+      font-size: 0.8rem;
+      color: var(--mist);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .blog-excerpt {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--bark);
+      margin-bottom: 1.2rem;
+    }
+
+    .blog-link {
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      background: var(--forest);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .blog-link:hover { background: var(--bark); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1a2e1b;
+      color: rgba(242,237,228,0.4);
+      text-align: center;
+      padding: 1.8rem 2rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+    }
+    footer span { color: var(--gold); opacity: 0.7; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      nav ul { display: none; }
+      .blog-post { grid-template-columns: 1fr; }
+      .blog-thumb { height: 140px; }
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="/">Open <em>Meadow</em> <span>Games</span></a>
+  <ul>
+    <li><a href="/#about">Studio</a></li>
+    <li><a href="/#games">Games</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/#connect">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <h1>Development <em>Log</em></h1>
+  <p class="page-header-subtitle">Behind the scenes at Open Meadow Games. Game design decisions, art updates, and stories from development.</p>
+</section>
+
+<!-- BLOG POSTS -->
+<section class="blog">
+  <div class="container reveal">
+    <span class="section-label">Latest Posts</span>
+    <h2>From the meadow.</h2>
+
+    <!-- Post 1 -->
+    <div class="blog-post">
+      <div class="blog-thumb">🎨</div>
+      <div>
+        <h3>Pixel Art & NPC Animation Milestone</h3>
+        <p class="blog-date">June 16, 2026</p>
+        <p class="blog-excerpt">Mae and Clara's idle animations are complete. Working with Aseprite's pixel-plugin accelerated our iteration process significantly. Here's what we learned about layer groups, onion skinning, and keeping 16x16 frames snappy.</p>
+        <a href="/blog/npc-animation-update.html" class="blog-link">Read More</a>
+      </div>
+    </div>
+
+    <!-- Post 2 -->
+    <div class="blog-post">
+      <div class="blog-thumb">🏢</div>
+      <div>
+        <h3>Open Meadow Games is Official</h3>
+        <p class="blog-date">June 10, 2026</p>
+        <p class="blog-excerpt">We've officially registered as a British Columbia sole proprietorship. Studio website is live, social media is set up, and Cozy Caravan is in active development. This marks the beginning of something special.</p>
+        <a href="/blog/studio-launch.html" class="blog-link">Read More</a>
+      </div>
+    </div>
+
+    <!-- Post 3 -->
+    <div class="blog-post">
+      <div class="blog-thumb">🚐</div>
+      <div>
+        <h3>Camp Night Loop Prototype Complete</h3>
+        <p class="blog-date">June 5, 2026</p>
+        <p class="blog-excerpt">We've completed a full prototype of Cozy Caravan's core loop: site selection, gear loadout, stealth rolls, and the dawn resolution. This foundational system will carry the entire game experience.</p>
+        <a href="/blog/camp-loop-prototype.html" class="blog-link">Read More</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>Open Meadow Games</span> — Vancouver, British Columbia, Canada</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  reveals.forEach(r => observer.observe(r));
+</script>
+
+</body>
+</html>
