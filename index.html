@@ -216,11 +216,15 @@
       box-shadow: 0 12px 40px rgba(44,74,46,0.1);
     }
     .game-thumb {
-      background: linear-gradient(135deg, #c8e6c8 0%, #7fb97f 100%);
       border-radius: 3px;
       aspect-ratio: 1;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 3rem;
+      overflow: hidden;
+    }
+    .game-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .game-status {
       display: inline-block;
@@ -426,7 +430,7 @@
     <h2>Games from the meadow.</h2>
 
     <div class="game-card">
-      <div class="game-thumb">🚐</div>
+      <div class="game-thumb"><img src="/images/stealthcamping.png" alt="Cozy Caravan stealth camping screenshot"></div>
       <div>
         <span class="game-status">In Development</span>
         <h3>Cozy Caravan</h3>
@@ -438,6 +442,7 @@
           <span class="tag">Narrative</span>
           <span class="tag">Indie</span>
         </div>
+        <p style="font-size:0.82rem;margin-top:1rem;color:var(--mist);font-style:italic;">All art shown is placeholder & concept art — very much a WIP. Just trying to get the idea out there!</p>
       </div>
     </div>
   </div>
@@ -452,7 +457,7 @@
     <div class="social-links">
       <a class="social-link" href="https://instagram.com/openmeadowgames" target="_blank">Instagram</a>
       <a class="social-link" href="https://x.com/openmeadowgames" target="_blank">Twitter / X</a>
-      <a class="social-link" href="https://tiktok.com/@openmeadowgames" target="_blank">TikTok</a>
+      <a class="social-link" href="https://tiktok.com/@open.meadow.games" target="_blank">TikTok</a>
       <a class="social-link" href="https://bsky.app/profile/openmeadowgames.bsky.social" target="_blank">Bluesky</a>
       <a class="social-link" href="https://openmeadowgames.itch.io" target="_blank">itch.io</a>
     </div>
