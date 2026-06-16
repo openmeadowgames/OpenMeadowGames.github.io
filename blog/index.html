@@ -139,6 +139,13 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 3rem;
       flex-shrink: 0;
+      overflow: hidden;
+    }
+    .blog-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .blog-post h3 {
@@ -257,7 +264,7 @@
 
     <!-- Post 3 -->
     <div class="blog-post">
-      <div class="blog-thumb">🚐</div>
+      <div class="blog-thumb"><img src="/images/PurpleRVplaceholder.png" alt="Cozy Caravan RV"></div>
       <div>
         <h3>Stealth Camping Loop Prototype Complete</h3>
         <p class="blog-date">June 5, 2026</p>
