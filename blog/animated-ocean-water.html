@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Making the Ocean Move — Open Meadow Games</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NBWSTQCE01"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NBWSTQCE01');
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest:   #2C4A2E;
+      --gold:     #C8A84B;
+      --cream:    #F2EDE4;
+      --mist:     #8FA89C;
+      --bark:     #5C3D2E;
+      --light:    #FAFAF7;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--forest);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 2.5rem;
+      background: rgba(242,237,228,0.88);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(44,74,46,0.1);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--forest);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--gold); }
+    nav ul {
+      list-style: none;
+      display: flex; gap: 2rem;
+    }
+    nav ul a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--forest);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+    nav ul a:hover { opacity: 1; }
+
+    /* ── CONTENT ── */
+    article {
+      padding-top: 8rem;
+      padding-bottom: 6rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .article-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .article-header {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    article h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.2;
+      color: var(--forest);
+      margin-bottom: 0.8rem;
+    }
+
+    article h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .article-meta {
+      font-size: 0.9rem;
+      color: var(--mist);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+    }
+
+    .article-meta span {
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    article p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--bark);
+      margin-bottom: 1.5rem;
+    }
+
+    article h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--forest);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    article h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--forest);
+      margin-top: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    article img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin: 2rem 0;
+      display: block;
+    }
+
+    article ul, article ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--bark);
+    }
+
+    article li {
+      margin-bottom: 0.6rem;
+      line-height: 1.8;
+    }
+
+    .article-footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(44,74,46,0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      background: var(--forest);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .back-link:hover { background: var(--bark); }
+
+    .article-share {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .share-link {
+      display: inline-block;
+      padding: 0.6rem 1rem;
+      border: 1px solid rgba(44,74,46,0.2);
+      color: var(--forest);
+      text-decoration: none;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .share-link:hover {
+      background: rgba(44,74,46,0.05);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1a2e1b;
+      color: rgba(242,237,228,0.4);
+      text-align: center;
+      padding: 1.8rem 2rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+    }
+    footer span { color: var(--gold); opacity: 0.7; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      nav { padding: 1rem 1.2rem; }
+      nav ul { gap: 0.9rem; }
+      nav ul a { font-size: 0.7rem; }
+      article { padding-top: 6rem; }
+      .article-footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="/">Open <em>Meadow</em> <span>Games</span></a>
+  <ul>
+    <li><a href="/#about">Studio</a></li>
+    <li><a href="/#games">Games</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/#connect">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- ARTICLE -->
+<article>
+  <div class="article-container">
+    <header class="article-header">
+      <h1>Making the <em>Ocean</em> Move</h1>
+      <div class="article-meta">
+        <span>July 7, 2026</span>
+        <span>Development Update</span>
+      </div>
+    </header>
+
+    <p>I finally cracked animated ocean water, and I'm honestly a little giddy about it. The Coastal Cliffs used to have a flat sheet of blue tiles sitting there doing nothing. Now the water shimmers, caustics crawl across the shallows, foam laps at the shoreline, and the whole thing shifts from bright turquoise near the beach to deep blue out past the rocks. See for yourself:</p>
+
+    <video controls autoplay muted loop playsinline style="width:100%;border-radius:4px;margin:2rem 0;">
+      <source src="/blog/0707.mp4" type="video/mp4">
+    </video>
+
+    <h2>The Problem With Tilemap Water</h2>
+    <p>Almost every water shader tutorial starts the same way: wiggle the UVs with some noise so the texture ripples. That works great on a single big sprite. It falls apart completely on a tilemap, because all the tiles live together in one texture atlas. The moment you displace UVs, each water tile starts sampling its neighbours in the atlas, and suddenly there are chunks of cliff and sand smearing through your ocean.</p>
+    <p>My water is painted as tiles, and I wanted to keep it that way — painting water in the tilemap editor is fast and flexible. So the shader had one hard rule: it can change brightness and colour, but it can never move a pixel.</p>
+
+    <h2>Layers, Not Tricks</h2>
+    <p>It turns out you don't need distortion at all. The final effect is a stack of simple layers, each one cheap on its own:</p>
+    <ul>
+      <li><strong>Depth gradient</strong> — the water blends from a shallow turquoise to a deep navy, snapped to a handful of discrete colour bands so it reads as pixel art instead of a smooth airbrushed fade.</li>
+      <li><strong>Caustics</strong> — two copies of a hand-authored caustic texture drift across the surface at different scales and headings, and the shader only keeps where they overlap. Because the overlap is always changing, the pattern morphs organically and never visibly repeats.</li>
+      <li><strong>Shoreline foam</strong> — an animated band of broken white hugging wherever water meets land, pulsing like a gentle tide.</li>
+      <li><strong>Sun sparkles</strong> — tiny glints where drifting sine waves cross each other, layered faintly over everything else.</li>
+    </ul>
+    <p>Everything is computed in world coordinates and quantized to chunky 2-pixel blocks, so the animation stays crisp and blocky instead of anti-aliasing itself into soup. That one detail did more for the pixel-art feel than anything else.</p>
+
+    <h2>The Depth Map Was the Breakthrough</h2>
+    <p>The piece that took the longest to figure out was making the depth gradient follow the actual coastline. A simple top-to-bottom fade looks fine until your shore curves, and mine curves a lot.</p>
+    <p>The solution: when the scene loads, a script reads the water tiles and runs a flood fill outward from the shore, building a little texture where each pixel stores how far it is from land. The shader samples that map to decide how deep (and how dark) each spot of water should be, and the foam knows exactly where the shoreline is because that's just where the depth hits zero.</p>
+    <p>The best part is that it's all generated from the tile data at load time. If I repaint the coastline tomorrow, the depth map, the gradient, and the foam all just follow along. No code changes, no hand-authored masks.</p>
+
+    <h2>Standing on Shoulders</h2>
+    <p>Credit where it's due: the caustic textures and the ideas behind their organic motion (a subtle noise wobble so the web writhes, plus a slow large-scale fade so patches come and go) came from jess-hammer's open-source 2D pixel water shader, released under the MIT license. Studying how that graph was put together taught me more about stylized water than any tutorial video did.</p>
+
+    <h2>What's Next</h2>
+    <p>The Coastal Cliffs are close to their end-of-content pass now, and this water pushes the whole scene up a level. The same shader is ready to drop onto any future lake, river, or tide pool — it's all driven by tile data, so new locations get living water for free.</p>
+
+    <p>Thanks for following the journey. More updates soon.</p>
+
+    <footer class="article-footer">
+      <a href="/blog/" class="back-link">← Back to Blog</a>
+      <div class="article-share">
+        <a href="#" class="share-link">Share on Twitter</a>
+        <a href="#" class="share-link">Share on Instagram</a>
+      </div>
+    </footer>
+  </div>
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>Open Meadow Games</span> — Vancouver, British Columbia, Canada</p>
+</footer>
+
+</body>
+</html>
