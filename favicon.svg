@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Open Meadow Games favicon: cozy RV on a meadow hill, sized for 16px legibility -->
+  <defs>
+    <clipPath id="frame">
+      <rect x="0" y="0" width="512" height="512" rx="96"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <!-- warm cream sky -->
+    <rect width="512" height="512" fill="#F6EFD9"/>
+
+    <!-- sun -->
+    <circle cx="428" cy="86" r="40" fill="#E9B44C"/>
+
+    <!-- meadow hill -->
+    <path d="M -40 420 Q 160 350 340 404 Q 450 436 560 408 L 560 560 L -40 560 Z" fill="#3F6B44"/>
+
+    <!-- RV: giant, chunky, gold body -->
+    <g transform="translate(28 128)">
+      <!-- body -->
+      <path d="M 0 252
+               L 0 96
+               Q 0 36 60 36
+               L 296 36
+               Q 388 36 428 130
+               L 452 192
+               Q 456 202 456 214
+               L 456 252
+               Q 456 272 436 272
+               L 20 272
+               Q 0 272 0 252 Z" fill="#E9B44C"/>
+
+      <!-- forest green roof band -->
+      <path d="M 0 96 Q 0 36 60 36 L 296 36 Q 352 36 386 84 L 0 84 Z" fill="#3F6B44"/>
+
+      <!-- windshield -->
+      <path d="M 316 100 L 364 100 Q 398 122 416 172 L 316 172 Z" fill="#F6EFD9"/>
+      <!-- side window -->
+      <rect x="44" y="104" width="120" height="72" rx="16" fill="#F6EFD9"/>
+      <!-- door -->
+      <rect x="200" y="104" width="84" height="168" rx="10" fill="#3F6B44"/>
+
+      <!-- wheels -->
+      <circle cx="104" cy="272" r="52" fill="#33322D"/>
+      <circle cx="104" cy="272" r="20" fill="#F6EFD9"/>
+      <circle cx="360" cy="272" r="52" fill="#33322D"/>
+      <circle cx="360" cy="272" r="20" fill="#F6EFD9"/>
+    </g>
+  </g>
+</svg>
