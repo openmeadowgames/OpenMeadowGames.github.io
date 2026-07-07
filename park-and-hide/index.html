@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Park & Hide — A Cozy Stealth Camping Adventure</title>
+  <meta name="description" content="Park & Hide is a cozy stealth camping adventure. Pack your camper van, find a quiet spot off the beaten path, and build a life one campsite at a time. In development at Open Meadow Games." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Open Meadow Games" />
+  <meta property="og:title" content="Park & Hide — A Cozy Stealth Camping Adventure" />
+  <meta property="og:description" content="Pack your camper van, find a quiet spot off the beaten path, and build a life one campsite at a time. Explore beautiful landscapes, meet quirky locals, and try not to get caught." />
+  <meta property="og:url" content="https://openmeadowgames.com/park-and-hide/" />
+  <meta property="og:image" content="https://openmeadowgames.com/images/ocean-water-card.png" />
+  <meta property="og:image:width" content="960" />
+  <meta property="og:image:height" content="502" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://openmeadowgames.com/images/ocean-water-card.png" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NBWSTQCE01"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NBWSTQCE01');
+  </script>
+  <link rel="icon" href="/favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png"/>
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+  <link rel="alternate" type="application/rss+xml" title="Open Meadow Games — Development Log" href="/feed.xml"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest:   #2C4A2E;
+      --gold:     #C8A84B;
+      --cream:    #F2EDE4;
+      --mist:     #8FA89C;
+      --bark:     #5C3D2E;
+      --light:    #FAFAF7;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--forest);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 2.5rem;
+      background: rgba(242,237,228,0.88);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(44,74,46,0.1);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--forest);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--gold); }
+    nav ul {
+      list-style: none;
+      display: flex; gap: 2rem;
+    }
+    nav ul a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--forest);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+    nav ul a:hover { opacity: 1; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 70vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      background: linear-gradient(180deg, #e8f0e9 0%, var(--cream) 60%);
+    }
+
+    .game-status {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      border-radius: 2px;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 1.05;
+      color: var(--forest);
+      margin-bottom: 0.4em;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      font-weight: 300;
+      color: var(--bark);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 0.85rem 2.2rem;
+      background: var(--forest);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .hero-cta:hover { background: var(--bark); transform: translateY(-2px); }
+
+    .hero-cta-secondary {
+      display: inline-block;
+      padding: 0.85rem 2.2rem;
+      background: none;
+      border: 1px solid var(--forest);
+      color: var(--forest);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .hero-cta-secondary:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--forest);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--bark);
+      max-width: 620px;
+    }
+
+    /* ── VIDEO ── */
+    .showcase { background: var(--light); text-align: center; }
+    .showcase video {
+      max-width: min(420px, 100%);
+      width: 100%;
+      border-radius: 4px;
+      margin: 1rem auto 0;
+      display: block;
+      box-shadow: 0 16px 48px rgba(44,74,46,0.18);
+    }
+    .showcase p { margin: 0 auto; }
+
+    /* ── FEATURES ── */
+    .features { background: var(--cream); }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .feature {
+      background: var(--light);
+      border: 1px solid rgba(44,74,46,0.12);
+      border-radius: 4px;
+      padding: 1.8rem;
+    }
+    .feature h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--forest);
+      margin-bottom: 0.6rem;
+    }
+    .feature p { font-size: 0.95rem; }
+
+    /* ── SCREENS ── */
+    .screens { background: var(--light); }
+    .screen-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .screen-grid img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+      border: 1px solid rgba(44,74,46,0.12);
+    }
+    .wip-note {
+      font-size: 0.82rem;
+      margin-top: 1.5rem;
+      color: var(--mist);
+      font-style: italic;
+    }
+
+    /* ── FOLLOW ── */
+    .follow {
+      background: var(--forest);
+      color: var(--cream);
+      text-align: center;
+    }
+    .follow h2 { color: var(--cream); }
+    .follow p { color: rgba(242,237,228,0.7); margin: 0 auto 2.5rem; }
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .social-link {
+      display: inline-block;
+      padding: 0.7rem 1.6rem;
+      border: 1px solid rgba(242,237,228,0.3);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .social-link:hover {
+      background: rgba(242,237,228,0.1);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1a2e1b;
+      color: rgba(242,237,228,0.4);
+      text-align: center;
+      padding: 1.8rem 2rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+    }
+    footer span { color: var(--gold); opacity: 0.7; }
+    footer p { max-width: none; margin-left: auto; margin-right: auto; text-align: center; color: inherit; font-size: inherit; line-height: 1.6; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      nav { padding: 1rem 1.2rem; }
+      nav ul { gap: 0.9rem; }
+      nav ul a { font-size: 0.7rem; }
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="/">Open <em>Meadow</em> <span>Games</span></a>
+  <ul>
+    <li><a href="/#about">Studio</a></li>
+    <li><a href="/park-and-hide/">Park & Hide</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/#connect">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="game-status">In Development</span>
+  <h1>Park <em>&</em> Hide</h1>
+  <p class="hero-tagline">A cozy stealth camping adventure. Park your van somewhere you probably shouldn't, make it through the night, and build a life one campsite at a time.</p>
+  <div class="hero-actions">
+    <a class="hero-cta" href="/blog/">Follow the Devlog</a>
+    <a class="hero-cta-secondary" href="https://openmeadowgames.itch.io" target="_blank" rel="noopener">Find Us on itch.io</a>
+  </div>
+</section>
+
+<!-- SHOWCASE -->
+<section class="showcase">
+  <div class="container reveal">
+    <span class="section-label">See It in Motion</span>
+    <h2>A world worth waking up in.</h2>
+    <p style="margin-left:auto;margin-right:auto;">Fresh from development: animated ocean water rolling in along the Coastal Cliffs.</p>
+    <video controls autoplay muted loop playsinline>
+      <source src="/blog/0707.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="container reveal">
+    <span class="section-label">The Game</span>
+    <h2>Wander. Settle in. Stay unseen.</h2>
+    <p>You've inherited a camper van from Walter, a legendary stealth camper, along with his life on the road. Where you take it from there is up to you.</p>
+
+    <div class="feature-grid">
+      <div class="feature">
+        <h3>Find tonight's spot</h3>
+        <p>Every location hides places to spend the night. Some are safe and quiet. Some are risky, ridiculous, and absolutely worth it.</p>
+      </div>
+      <div class="feature">
+        <h3>Make it to morning</h3>
+        <p>The longer you stay, the more attention you draw. Manage your lights, your noise, and your nerve until the sun comes up.</p>
+      </div>
+      <div class="feature">
+        <h3>Live out of your van</h3>
+        <p>Craft and place furniture, decorate your space, and upgrade your rig. Your van is your home, and it grows with you.</p>
+      </div>
+      <div class="feature">
+        <h3>Meet the locals</h3>
+        <p>Every stop has its people, each with their own story that unfolds the more you visit. Some of them might even change your life.</p>
+      </div>
+      <div class="feature">
+        <h3>Explore the coast and beyond</h3>
+        <p>Windswept cliffs, pine forests, city streets after dark. Each place has its own rhythm, resources, and secrets.</p>
+      </div>
+      <div class="feature">
+        <h3>Cozy stakes, always</h3>
+        <p>Getting caught is a setback, never a game over. You wake up, you keep your van, and the road is always there in the morning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENS -->
+<section class="screens">
+  <div class="container reveal">
+    <span class="section-label">Screenshots</span>
+    <h2>Postcards from the road.</h2>
+    <div class="screen-grid">
+      <img src="/images/stealthcamping.png" alt="Park & Hide — stealth camping at night">
+      <img src="/images/PurpleRVplaceholder.png" alt="Park & Hide — the camper van in a meadow">
+      <img src="/images/ricardo-thumb.png" alt="Park & Hide — beach shoreline">
+      <img src="/images/ocean-water-card.png" alt="Park & Hide — animated ocean water at the Coastal Cliffs">
+    </div>
+    <p class="wip-note">All art shown is placeholder &amp; concept art — very much a WIP. Just trying to get the idea out there!</p>
+  </div>
+</section>
+
+<!-- FOLLOW -->
+<section class="follow">
+  <div class="container reveal">
+    <span class="section-label" style="color:var(--gold)">Stay in the Loop</span>
+    <h2>Come along for the ride.</h2>
+    <p>Park &amp; Hide is in active development. Follow the devlog for regular updates, behind the scenes moments, and the occasional campfire story.</p>
+    <div class="social-links">
+      <a class="social-link" href="/blog/">Devlog</a>
+      <a class="social-link" href="https://instagram.com/openmeadowgames" target="_blank" rel="noopener">Instagram</a>
+      <a class="social-link" href="https://x.com/openmeadowgames" target="_blank" rel="noopener">Twitter / X</a>
+      <a class="social-link" href="https://bsky.app/profile/openmeadowgames.bsky.social" target="_blank" rel="noopener">Bluesky</a>
+      <a class="social-link" href="https://tiktok.com/@open.meadow.games" target="_blank" rel="noopener">TikTok</a>
+      <a class="social-link" href="/feed.xml">RSS</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>Open Meadow Games</span> — Vancouver, British Columbia, Canada. All rights reserved.</p>
+  <p style="margin-top:0.5rem;font-size:0.72rem;opacity:0.75;">All artwork, videos, screenshots, and text on this site, including all game content shown, are the property of Open Meadow Games and may not be reproduced or redistributed without written permission.</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  reveals.forEach(r => observer.observe(r));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Open Meadow Games — Development Log</title>
+  <link>https://openmeadowgames.com/blog/</link>
+  <description>Behind the scenes at Open Meadow Games. Game design decisions, art updates, and stories from the development of Park &amp; Hide.</description>
+  <language>en-ca</language>
+  <lastBuildDate>Tue, 07 Jul 2026 12:00:00 -0700</lastBuildDate>
+  <atom:link href="https://openmeadowgames.com/feed.xml" rel="self" type="application/rss+xml"/>
+
+  <item>
+    <title>Making the Ocean Move</title>
+    <link>https://openmeadowgames.com/blog/animated-ocean-water.html</link>
+    <guid>https://openmeadowgames.com/blog/animated-ocean-water.html</guid>
+    <pubDate>Tue, 07 Jul 2026 12:00:00 -0700</pubDate>
+    <description>The Coastal Cliffs finally have living water: drifting caustics, shoreline foam, sun sparkles, and a depth gradient that hugs the coast. Here's how I built animated ocean water on a Godot tilemap without ever distorting a single pixel.</description>
+  </item>
+
+  <item>
+    <title>Ricardo's Shelter Has a Home</title>
+    <link>https://openmeadowgames.com/blog/ricardos-shelter-and-tileset-refresh.html</link>
+    <guid>https://openmeadowgames.com/blog/ricardos-shelter-and-tileset-refresh.html</guid>
+    <pubDate>Wed, 17 Jun 2026 12:00:00 -0700</pubDate>
+    <description>Ricardo and his dog shelter are now wired into the Rest Stop, plus a tileset refresh swaps the old numbered pack for proper Beach and Large Cliff/Sand/Dirt/Grass sets.</description>
+  </item>
+
+  <item>
+    <title>Pixel Art &amp; NPC Animation Milestone</title>
+    <link>https://openmeadowgames.com/blog/npc-animation-update.html</link>
+    <guid>https://openmeadowgames.com/blog/npc-animation-update.html</guid>
+    <pubDate>Tue, 16 Jun 2026 12:00:00 -0700</pubDate>
+    <description>New tilesets, environment concepts, and a deep dive into the stealth camping system at the heart of Park &amp; Hide.</description>
+  </item>
+
+  <item>
+    <title>Open Meadow Games is Official</title>
+    <link>https://openmeadowgames.com/blog/studio-launch.html</link>
+    <guid>https://openmeadowgames.com/blog/studio-launch.html</guid>
+    <pubDate>Wed, 10 Jun 2026 12:00:00 -0700</pubDate>
+    <description>Open Meadow Games is officially registered in British Columbia. Studio website is live, social media is set up, and Park &amp; Hide is in active development.</description>
+  </item>
+
+  <item>
+    <title>Stealth Camping Loop Prototype Complete</title>
+    <link>https://openmeadowgames.com/blog/stealth-loop-prototype.html</link>
+    <guid>https://openmeadowgames.com/blog/stealth-loop-prototype.html</guid>
+    <pubDate>Fri, 05 Jun 2026 12:00:00 -0700</pubDate>
+    <description>A full prototype of Park &amp; Hide's core loop is done: site selection, gear loadout, stealth rolls, and the dawn resolution.</description>
+  </item>
+
+</channel>
+</rss>
