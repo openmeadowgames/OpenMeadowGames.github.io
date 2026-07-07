@@ -201,7 +201,8 @@
     .share-link {
       display: inline-block;
       padding: 0.6rem 1.1rem;
-      border: 1px solid rgba(44,74,46,0.35);
+      background: rgba(44,74,46,0.07);
+      border: 1px solid var(--forest);
       color: var(--forest);
       text-decoration: none;
       font-size: 0.8rem;
@@ -217,9 +218,13 @@
       color: var(--gold);
     }
     button.share-link {
-      background: none;
       font-family: inherit;
       cursor: pointer;
+    }
+    button.share-link:hover {
+      background: rgba(44,74,46,0.05);
+      border-color: var(--gold);
+      color: var(--gold);
     }
 
     /* ── FOOTER ── */
