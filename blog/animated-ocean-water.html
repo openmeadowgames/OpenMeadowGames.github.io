@@ -200,12 +200,13 @@
 
     .share-link {
       display: inline-block;
-      padding: 0.6rem 1rem;
-      border: 1px solid rgba(44,74,46,0.2);
+      padding: 0.6rem 1.1rem;
+      border: 1px solid rgba(44,74,46,0.35);
       color: var(--forest);
       text-decoration: none;
-      font-size: 0.7rem;
-      letter-spacing: 0.08em;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       border-radius: 2px;
       transition: background 0.2s, border-color 0.2s;
@@ -214,6 +215,11 @@
       background: rgba(44,74,46,0.05);
       border-color: var(--gold);
       color: var(--gold);
+    }
+    button.share-link {
+      background: none;
+      font-family: inherit;
+      cursor: pointer;
     }
 
     /* ── FOOTER ── */
@@ -300,6 +306,7 @@
       <div class="article-share">
         <a href="https://twitter.com/intent/tweet?text=Making%20the%20Ocean%20Move%20%E2%80%94%20animated%20ocean%20water%20in%20Godot&url=https%3A%2F%2Fopenmeadowgames.com%2Fblog%2Fanimated-ocean-water.html" target="_blank" rel="noopener" class="share-link">Share on X</a>
         <a href="https://bsky.app/intent/compose?text=Making%20the%20Ocean%20Move%20%E2%80%94%20animated%20ocean%20water%20in%20Godot%20https%3A%2F%2Fopenmeadowgames.com%2Fblog%2Fanimated-ocean-water.html" target="_blank" rel="noopener" class="share-link">Share on Bluesky</a>
+        <button class="share-link" onclick="navigator.clipboard.writeText('https://openmeadowgames.com/blog/animated-ocean-water.html').then(() => { this.textContent = 'Link Copied!'; setTimeout(() => this.textContent = 'Copy Link', 1500); })">Copy Link</button>
       </div>
     </footer>
   </div>

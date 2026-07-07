@@ -198,12 +198,13 @@
 
     .share-link {
       display: inline-block;
-      padding: 0.6rem 1rem;
-      border: 1px solid rgba(44,74,46,0.2);
+      padding: 0.6rem 1.1rem;
+      border: 1px solid rgba(44,74,46,0.35);
       color: var(--forest);
       text-decoration: none;
-      font-size: 0.7rem;
-      letter-spacing: 0.08em;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       border-radius: 2px;
       transition: background 0.2s, border-color 0.2s;
@@ -212,6 +213,11 @@
       background: rgba(44,74,46,0.05);
       border-color: var(--gold);
       color: var(--gold);
+    }
+    button.share-link {
+      background: none;
+      font-family: inherit;
+      cursor: pointer;
     }
 
     /* ── FOOTER ── */
@@ -302,6 +308,7 @@
       <div class="article-share">
         <a href="https://twitter.com/intent/tweet?text=Pixel%20Art%20%26%20NPC%20Animation%20Milestone&url=https%3A%2F%2Fopenmeadowgames.com%2Fblog%2Fnpc-animation-update.html" target="_blank" rel="noopener" class="share-link">Share on X</a>
         <a href="https://bsky.app/intent/compose?text=Pixel%20Art%20%26%20NPC%20Animation%20Milestone%20https%3A%2F%2Fopenmeadowgames.com%2Fblog%2Fnpc-animation-update.html" target="_blank" rel="noopener" class="share-link">Share on Bluesky</a>
+        <button class="share-link" onclick="navigator.clipboard.writeText('https://openmeadowgames.com/blog/npc-animation-update.html').then(() => { this.textContent = 'Link Copied!'; setTimeout(() => this.textContent = 'Copy Link', 1500); })">Copy Link</button>
       </div>
     </footer>
   </div>
