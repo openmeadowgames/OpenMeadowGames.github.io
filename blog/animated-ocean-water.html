@@ -305,9 +305,6 @@
     <p>The solution: when the scene loads, a script reads the water tiles and runs a flood fill outward from the shore, building a little texture where each pixel stores how far it is from land. The shader samples that map to decide how deep (and how dark) each spot of water should be, and the foam knows exactly where the shoreline is because that's just where the depth hits zero.</p>
     <p>The best part is that it's all generated from the tile data at load time. If I repaint the coastline tomorrow, the depth map, the gradient, and the foam all just follow along. No code changes, no hand-authored masks.</p>
 
-    <h2>Standing on Shoulders</h2>
-    <p>Credit where it's due: the caustic textures and the ideas behind their organic motion (a subtle noise wobble so the web writhes, plus a slow large-scale fade so patches come and go) came from jess-hammer's open-source 2D pixel water shader, released under the MIT license. Studying how that graph was put together taught me more about stylized water than any tutorial video did.</p>
-
     <h2>What's Next</h2>
     <p>The Coastal Cliffs are close to their end-of-content pass now, and this water pushes the whole scene up a level. The same shader is ready to drop onto any future lake, river, or tide pool — it's all driven by tile data, so new locations get living water for free.</p>
 
