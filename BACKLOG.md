@@ -20,6 +20,20 @@ Running list of improvements for the studio site. Ordered roughly by impact.
 - [ ] **Copyright year** — bump "© 2026" to "© 2026–2027" in January
   (or automate with a small script).
 
+## Steam / Store
+
+- [ ] **Register "Park & Hide" as a Steam app** — sign up for Steamworks, pay
+  the $100 Steam Direct fee, create the app under the studio email. Claims the
+  title + app ID in Steam's catalog. Do NOT publish the public page yet — just
+  register. (Note: this is NOT legal name protection — that's a trademark.)
+- [ ] **Publish the public Coming Soon page** — only once real capsule art +
+  5 screenshots are ready (and Walter/lore names are settled). This is the
+  wishlist-collecting page; don't rush it out with a placeholder capsule.
+- [ ] **Commission capsule / key art** — artist brief is drafted (held until
+  character names finalized). Work-for-hire, full copyright assignment.
+- [ ] **Consider trademarking "Park & Hide"** — someday item, only if the name
+  becomes precious. Real legal protection, unlike a Steam page.
+
 ## Studio Consolidation (personal → studio identity)
 
 Goal: everything business-facing lives under the studio identity
