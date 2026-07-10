@@ -20,6 +20,27 @@ Running list of improvements for the studio site. Ordered roughly by impact.
 - [ ] **Copyright year** — bump "© 2026" to "© 2026–2027" in January
   (or automate with a small script).
 
+## Studio Consolidation (personal → studio identity)
+
+Goal: everything business-facing lives under the studio identity
+(`openmeadowgames@gmail.com` / the `OpenMeadowGames` GitHub org), not personal
+accounts. Not urgent — a "clean up before the studio grows" pass.
+
+- [ ] **Transfer game repo to the org** — the game source repo is under a
+  personal GitHub account (`djsheepy@gmail.com`). Move it into the
+  `OpenMeadowGames` org via repo Settings → Danger Zone → Transfer ownership.
+  Preserves history/issues/stars and sets up redirects. Stays private if it
+  already is.
+- [ ] **Confirm org admin access** — after transfer, ensure the studio
+  account/your login has Admin on the org so control isn't lost.
+- [ ] **Audit remaining personal-email accounts** — list anything game/studio
+  related still tied to `djsheepy@gmail.com` and migrate or re-own under the
+  studio email (socials, itch, Discord, mailing tool, domain, etc.).
+  (GA is already under the studio email — no action needed there.)
+- [ ] **Lock down the studio email** — 2FA (authenticator, not SMS), recovery
+  email + phone, saved backup codes. It's the single point of failure once
+  everything hangs off it.
+
 ## Maintenance / Tech Debt
 
 - [ ] **Shared stylesheet** — every page duplicates ~200 lines of identical
