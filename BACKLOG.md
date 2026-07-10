@@ -22,10 +22,18 @@ Running list of improvements for the studio site. Ordered roughly by impact.
 
 ## Steam / Store
 
-- [ ] **Register "Park & Hide" as a Steam app** — sign up for Steamworks, pay
-  the $100 Steam Direct fee, create the app under the studio email. Claims the
-  title + app ID in Steam's catalog. Do NOT publish the public page yet — just
-  register. (Note: this is NOT legal name protection — that's a trademark.)
+- [ ] **Register "Park & Hide" as a Steam app** — PAUSED (July 10, 2026).
+  Started the Steamworks signup but stopped — no benefit yet since wishlists
+  only start once the public page (needs art) is live, and app registration is
+  NOT legal name protection (that's a trademark). Revisit when capsule art +
+  demo plan are closer.
+  - When resuming: sign up at partner.steamgames.com under the studio email
+    → "I'm a developer or publisher" → sign SDA + NDA (free) → tax interview
+    (W-8BEN, use SIN for Canada–US treaty rate) → bank/payout → identity
+    verification (takes days). The **$100 Steam Direct fee is only charged
+    when you create the app** — that's the stopping point. Optionally finish
+    the FREE onboarding early to get the slow verification out of the way, but
+    hold the $100 app creation until art is ready.
 - [ ] **Publish the public Coming Soon page** — only once real capsule art +
   5 screenshots are ready (and Walter/lore names are settled). This is the
   wishlist-collecting page; don't rush it out with a placeholder capsule.
