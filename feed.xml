@@ -29,7 +29,7 @@
     <link>https://openmeadowgames.com/blog/npc-animation-update.html</link>
     <guid>https://openmeadowgames.com/blog/npc-animation-update.html</guid>
     <pubDate>Tue, 16 Jun 2026 12:00:00 -0700</pubDate>
-    <description>New tilesets, environment concepts, and a deep dive into the stealth camping system at the heart of Park &amp; Hide.</description>
+    <description>New tilesets, environment concepts, and animated tileset work for Park &amp; Hide.</description>
   </item>
 
   <item>
@@ -38,14 +38,6 @@
     <guid>https://openmeadowgames.com/blog/studio-launch.html</guid>
     <pubDate>Wed, 10 Jun 2026 12:00:00 -0700</pubDate>
     <description>Open Meadow Games is officially registered in British Columbia. Studio website is live, social media is set up, and Park &amp; Hide is in active development.</description>
-  </item>
-
-  <item>
-    <title>Stealth Camping Loop Prototype Complete</title>
-    <link>https://openmeadowgames.com/blog/stealth-loop-prototype.html</link>
-    <guid>https://openmeadowgames.com/blog/stealth-loop-prototype.html</guid>
-    <pubDate>Fri, 05 Jun 2026 12:00:00 -0700</pubDate>
-    <description>A full prototype of Park &amp; Hide's core loop is done: site selection, gear loadout, stealth rolls, and the dawn resolution.</description>
   </item>
 
 </channel>
