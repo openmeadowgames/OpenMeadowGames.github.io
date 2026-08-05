@@ -93,7 +93,7 @@
       padding: 6rem 2rem 0;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(180deg, #e8f0e9 0%, #fbf1d8 55%, var(--cream) 100%);
+      background: linear-gradient(180deg, #e8f0e9 0%, var(--cream) 60%);
     }
 
     .hero-eyebrow {
@@ -140,65 +140,25 @@
     }
     .hero-cta:hover { background: var(--bark); transform: translateY(-2px); }
 
-    /* Meadow scene — layered: sky/sun/clouds, trees, RV + headlights, ground */
+    /* Meadow scene */
     .meadow-scene {
       width: 100%;
-      height: 200px;
+      height: 140px;
       margin-top: 3rem;
       flex-shrink: 0;
       position: relative;
-      overflow: hidden;
-      border-radius: 6px;
     }
-
-    /* Sky layer */
-    .sky-layer {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, #bfe0f2 0%, #eaf2c9 55%, #fce6a0 100%);
-    }
-    .sun-glow {
-      position: absolute;
-      top: -50px;
-      right: 10%;
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,229,150,0.95) 0%, rgba(255,229,150,0.4) 45%, rgba(255,229,150,0) 75%);
-    }
-    .cloud {
-      position: absolute;
-      width: 64px;
-      height: 20px;
-      top: 24px;
-      background: #fff;
-      opacity: 0.8;
-      border-radius: 30px;
-      animation: drift linear infinite;
-    }
-    .cloud::before, .cloud::after {
-      content: '';
-      position: absolute;
-      background: inherit;
-      border-radius: 50%;
-    }
-    .cloud::before { width: 30px; height: 30px; top: -14px; left: 6px; }
-    .cloud::after  { width: 24px; height: 24px; top: -10px; left: 32px; }
-    .cloud-1 { top: 18px;  width: 58px; animation-duration: 42s; }
-    .cloud-2 { top: 48px;  width: 44px; animation-duration: 58s; animation-delay: -20s; opacity: 0.65; }
-    .cloud-3 { top: 8px;   width: 70px; animation-duration: 50s; animation-delay: -35s; opacity: 0.7; }
-
-    @keyframes drift {
-      from { left: -20%; }
-      to   { left: 115%; }
-    }
-
-    /* Tree layer */
     .meadow-sprite {
       position: absolute;
-      bottom: 26px;
+      bottom: 30px;
       image-rendering: pixelated;
       transform-origin: bottom center;
+    }
+    .ground {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 30px;
+      background: linear-gradient(180deg, #a8c8a8 0%, #8fb08f 100%);
     }
 
     @keyframes sway {
@@ -208,48 +168,6 @@
     .sway-slow  { animation: sway 4s ease-in-out infinite; }
     .sway-med   { animation: sway 3.2s ease-in-out infinite 0.4s; }
     .sway-fast  { animation: sway 2.8s ease-in-out infinite 0.9s; }
-
-    /* RV layer */
-    .rv-layer {
-      position: absolute;
-      left: 50%;
-      bottom: 22px;
-      transform: translateX(-50%);
-      width: 210px;
-    }
-    .rv-sprite {
-      display: block;
-      width: 100%;
-      height: auto;
-      image-rendering: pixelated;
-    }
-    .headlight-glow {
-      position: absolute;
-      left: 96.5%;
-      top: 71%;
-      width: 16px;
-      height: 16px;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,240,190,0.95) 0%, rgba(255,214,120,0.55) 45%, rgba(255,214,120,0) 75%);
-      animation: flicker 5s infinite;
-      pointer-events: none;
-    }
-    @keyframes flicker {
-      0%, 18%, 22%, 47%, 53%, 100% { opacity: 1; }
-      20%   { opacity: 0.3; }
-      50%   { opacity: 0.4; }
-      74%   { opacity: 0.6; }
-      76%   { opacity: 1; }
-    }
-
-    /* Ground layer */
-    .ground {
-      position: absolute;
-      left: 0; right: 0; bottom: 0;
-      height: 26px;
-      background: linear-gradient(180deg, #a8c8a8 0%, #8fb08f 100%);
-    }
 
     /* ── SECTION BASE ── */
     section { padding: 6rem 2rem; }
@@ -469,26 +387,6 @@
 
   <!-- Meadow Scene -->
   <div class="meadow-scene">
-    <div class="sky-layer">
-      <div class="sun-glow"></div>
-      <div class="cloud cloud-1"></div>
-      <div class="cloud cloud-2"></div>
-      <div class="cloud cloud-3"></div>
-    </div>
-
-    <img class="meadow-sprite sway-slow" src="/images/meadow/tree-2.png" alt="" style="left:4%;width:58px;">
-    <img class="meadow-sprite sway-med"  src="/images/meadow/tree-1.png" alt="" style="left:12%;width:50px;">
-    <img class="meadow-sprite sway-fast" src="/images/meadow/tree-3.png" alt="" style="left:20%;width:54px;">
-
-    <img class="meadow-sprite sway-fast" src="/images/meadow/tree-3.png" alt="" style="right:20%;width:54px;">
-    <img class="meadow-sprite sway-med"  src="/images/meadow/tree-1.png" alt="" style="right:12%;width:50px;">
-    <img class="meadow-sprite sway-slow" src="/images/meadow/tree-2.png" alt="" style="right:4%;width:58px;">
-
-    <div class="rv-layer">
-      <img class="rv-sprite" src="/images/meadow/rv-sprite.png" alt="">
-      <div class="headlight-glow"></div>
-    </div>
-
     <div class="ground"></div>
   </div>
 </section>
