@@ -288,7 +288,7 @@
 
     <h2>The Problem With Tilemap Water</h2>
     <p>Almost every water shader tutorial starts the same way: wiggle the UVs with some noise so the texture ripples. That works great on a single big sprite. It falls apart completely on a tilemap, because all the tiles live together in one texture atlas. The moment you displace UVs, each water tile starts sampling its neighbours in the atlas, and suddenly there are chunks of cliff and sand smearing through your ocean.</p>
-    <p>My water is painted as tiles, and I wanted to keep it that way — painting water in the tilemap editor is fast and flexible. So the shader had one hard rule: it can change brightness and colour, but it can never move a pixel.</p>
+    <p>My water is painted as tiles, and I wanted to keep it that way: painting water in the tilemap editor is fast and flexible. So the shader had one hard rule: it can change brightness and colour, but it can never move a pixel.</p>
 
     <h2>Layers, Not Tricks</h2>
     <p>It turns out you don't need distortion at all. The final effect is a stack of simple layers, each one cheap on its own:</p>
@@ -306,7 +306,7 @@
     <p>The best part is that it's all generated from the tile data at load time. If I repaint the coastline tomorrow, the depth map, the gradient, and the foam all just follow along. No code changes, no hand-authored masks.</p>
 
     <h2>What's Next</h2>
-    <p>The Coastal Cliffs are close to their end-of-content pass now, and this water pushes the whole scene up a level. The same shader is ready to drop onto any future lake, river, or tide pool — it's all driven by tile data, so new locations get living water for free.</p>
+    <p>The Coastal Cliffs are close to their end-of-content pass now, and this water pushes the whole scene up a level. The same shader is ready to drop onto any future lake, river, or tide pool. It's all driven by tile data, so new locations get living water for free.</p>
 
     <p>Thanks for following the journey. More updates soon.</p>
 

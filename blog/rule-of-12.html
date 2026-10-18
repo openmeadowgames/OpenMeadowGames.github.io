@@ -299,78 +299,78 @@
       </div>
     </header>
 
-    <p>This one isn't about Park &amp; Hide. Every so often a problem gets stuck in my head that has nothing to do with the game, and the only way to get it out is to build the thing. This time it was golf — specifically, the small, maddening decision of which club to chip with.</p>
+    <p>This one isn't about Park &amp; Hide. Every so often a problem gets stuck in my head that has nothing to do with the game, and the only way to get it out is to build the thing. This time it was golf: the small, maddening decision of which club to chip with.</p>
 
-    <p>So there's a second app now: <strong>Rule of 12</strong>, a chipping club selector. It's a different medium and a different audience, but it turned out to be the same job I do every day on the game — take something fuzzy, find the actual rule underneath it, and put it behind an interface simple enough to use without thinking.</p>
+    <p>So there's a second app now: <strong>Rule of 12</strong>, a chipping club selector. It's a different medium and a different audience, but it turned out to be the same job I do every day on the game. Take something fuzzy, find the actual rule underneath it, and put it behind an interface simple enough to use without thinking.</p>
 
     <h2>The Rule, and Why It's Quietly Broken</h2>
 
     <p>The Rule of 12 is old golf-lesson arithmetic. You're just off the green and you want to land the ball on the putting surface and let it run to the hole. Which club? Subtract the club number from 12, and the answer is how far the ball rolls for every yard it carries. An 8-iron: 12 − 8 = 4, so one part carry to four parts roll. A pitching wedge, counted as a 10: 12 − 10 = 2. Pick the club whose ratio matches the shot in front of you.</p>
 
-    <p>It's a genuinely good rule. It's also built on an assumption that stopped being true.</p>
+    <p>It's a good rule. It's also built on an assumption that no longer holds.</p>
 
-    <p><strong>Lofts moved.</strong> Manufacturers have been strengthening irons for decades — modern sets run roughly 3 to 5 degrees stronger than the clubs this rule was written for. A 7-iron today is lofted about like the 6-iron the rule has in mind. Subtracting the number stamped on the sole gives you a confident answer about a club you aren't actually holding.</p>
+    <p><strong>Lofts moved.</strong> Manufacturers have been strengthening irons for decades, and modern sets run roughly 3 to 5 degrees stronger than the clubs this rule was written for. A 7-iron today is lofted about like the 6-iron the rule has in mind. Subtracting the number stamped on the sole gives you a confident answer about a club you aren't actually holding.</p>
 
     <p><strong>And wedges have no number at all.</strong> Nobody's bag is a tidy run of numbered irons any more. Mine has a 50, a 55, and a 60 in it. There's nothing there to subtract from 12.</p>
 
     <h2>Loft Was Doing the Work All Along</h2>
 
-    <p>The fix is to stop pretending the number means anything and use the thing it was standing in for. Loft is what decides how a chip comes out: less loft flies lower and rolls further, more loft flies higher and stops sooner. So the app asks for your real bag — every club, its actual loft, and whatever you happen to call it — and derives the roll-to-carry ratio from that instead.</p>
+    <p>The fix is to stop pretending the number means anything and use the thing it was standing in for. Loft is what decides how a chip comes out: less loft flies lower and rolls further, more loft flies higher and stops sooner. So the app asks for your real bag (every club, its actual loft, and whatever you happen to call it) and derives the roll-to-carry ratio from that instead.</p>
 
     <img src="/images/rule-of-12/main-screen.png" alt="The main Rule of 12 screen: mode toggle, two distance inputs, and slope and green speed conditions" class="screen">
     <p class="caption">Two numbers and two conditions. That's the whole input.</p>
 
-    <p>You give it two distances — how far out you want to land the ball, and how far it is from that spot to the flag — and it works backwards:</p>
+    <p>You give it two distances (how far out you want to land the ball, and how far it is from that spot to the flag) and it works backwards:</p>
 
     <img src="/images/rule-of-12/result-trajectory.png" alt="Result card reading 50 degree wedge, with the ratio arithmetic and a carry-and-roll trajectory diagram" class="screen">
-    <p class="caption">Land it 6, 13 more to the hole: that's a ratio of 2.2. The 50° rolls 2.0. Close enough — and it says exactly how close.</p>
+    <p class="caption">Land it 6, 13 more to the hole: that's a ratio of 2.2. The 50° rolls 2.0. Close enough, and it says exactly how close.</p>
 
-    <p>Roll divided by carry is the ratio you need. Every club in the bag has a ratio it naturally produces. Match one to the other and you have your club. What I like most about this screen is that it shows its work — the arithmetic is right there, so you can disagree with it.</p>
+    <p>Roll divided by carry is the ratio you need. Every club in the bag has a ratio it naturally produces. Match one to the other and you have your club. What I like most about this screen is that it shows its work. The arithmetic is right there, so you can disagree with it.</p>
 
     <h2>Refusing to Fake Precision</h2>
 
-    <p>The temptation with a calculator like this is to always give one crisp answer. But the honest answer is often "either of these two, and here's the trade-off." So when a second club is nearly as good a match, the app says so rather than picking a winner by a rounding error. And when the match isn't exact, it tells you how to make it exact — land it 6.6 instead of 6 — rather than quietly pretending 2.0 and 2.2 are the same number.</p>
+    <p>The temptation with a calculator like this is to always give one crisp answer. But the honest answer is often "either of these two, and here's the trade-off." So when a second club is nearly as good a match, the app says so rather than picking a winner by a rounding error. And when the match isn't exact, it tells you how to make it exact (land it 6.6 instead of 6) rather than quietly pretending 2.0 and 2.2 are the same number.</p>
 
     <p>That was the design rule for the whole thing: never sound more certain than the math is.</p>
 
     <h2>Both Directions</h2>
 
-    <p>There are two modes, because there are two ways this question actually shows up on a course. <em>Which club?</em> is the one above. <em>Where to land?</em> is the other half — you've already got a club in your hand, you just want to know where to aim. Same relationship, solved for the other variable.</p>
+    <p>There are two modes, because there are two ways this question actually shows up on a course. <em>Which club?</em> is the one above. <em>Where to land?</em> is the other half: you've already got a club in your hand, you just want to know where to aim. Same relationship, solved for the other variable.</p>
 
     <h2>The Best Decision: Only the Ratio Matters</h2>
 
-    <p>Here's the bit I'm most pleased with, and it's not really a feature — it's something the math gave me for free.</p>
+    <p>The bit I'm most pleased with came free with the math.</p>
 
     <p>Because the answer comes from one distance <em>divided by</em> another, the unit cancels out. Three and fifteen in yards produces exactly the same club as three and fifteen in paces, or feet, or shoe lengths. So there's no rangefinder needed, no conversion, no getting it wrong because you guessed yards when it was meters. You walk it off in whatever you've got, put both numbers in the same unit, and the answer is right.</p>
 
-    <p>That one property deleted an entire category of interface problem. The unit selector in settings is basically cosmetic — it changes the label next to the number, not the answer.</p>
+    <p>That one property deleted an entire category of interface problem. The unit selector in settings is basically cosmetic: it changes the label next to the number, not the answer.</p>
 
     <h2>Conditions, and the Ground You're Not Standing On</h2>
 
     <p>Two things bend the ratio enough to matter: the slope between your landing spot and the hole, and how fast the greens are running. Both are a row of buttons, because on the course you have about three seconds and one hand free. Uphill kills roll, downhill adds it, and a green described as "glass" adds a lot.</p>
 
-    <p>The subtle part is that the slope that matters is the ground <em>between the landing spot and the hole</em> — the part the ball rolls across — not the lie you happen to be standing in. Getting people to read the right piece of ground turned out to be more of a copywriting problem than a code problem.</p>
+    <p>The subtle part is that the slope that matters is the ground <em>between the landing spot and the hole</em>, the part the ball rolls across, not the lie you happen to be standing in. Getting people to read the right piece of ground turned out to be more of a copywriting problem than a code problem.</p>
 
-    <h2>Where It Got Genuinely Useful</h2>
+    <h2>Where It Got Useful</h2>
 
     <p>All of the above is theory. The theory assumes a clean strike, and you are a person with a golf swing.</p>
 
-    <p>So after a shot you tap <strong>Short</strong>, <strong>Good</strong>, or <strong>Long</strong>. That's the entire logging interaction — one tap, no forms — and after a handful of shots patterns start showing up per club.</p>
+    <p>So after a shot you tap <strong>Short</strong>, <strong>Good</strong>, or <strong>Long</strong>. That's the entire logging interaction: one tap, no forms. After a handful of shots patterns start showing up per club.</p>
 
     <img src="/images/rule-of-12/shot-history.png" alt="Shot history panel showing per-club trends: 50 with 12 shots tends long, PW with 4 shots mixed results" class="screen screen-wide">
     <p class="caption">Twelve shots with the 50°, eleven of them long. The math was fine. I wasn't.</p>
 
-    <p>That readout — <em>tends long</em> — is worth more than any amount of ratio precision, because it's the first thing that's about you rather than about the clubs. Once you know your 50° consistently runs out, you land it shorter and the problem goes away.</p>
+    <p>That readout, <em>tends long</em>, is worth more than any amount of ratio precision, because it's the first thing that's about you rather than about the clubs. Once you know your 50° consistently runs out, you land it shorter and the problem goes away.</p>
 
     <h2>How It's Built</h2>
 
     <p>It's a React web app, wrapped up and shipped to the Play Store. That let me iterate in a browser tab at the speed of a refresh, keep one codebase, and get it onto a phone without a heavy native toolchain in the middle.</p>
 
-    <p>Most of the actual design effort went into the fact that this gets used outdoors, in bright sun, one-handed, possibly wearing a glove. Which meant: big tap targets everywhere, plus-and-minus steppers instead of a keyboard, no menus buried behind menus, and dark, light and high-contrast themes so it's readable whatever the sky is doing. It's the same discipline as designing a game HUD — the interface has to lose the fight for attention gracefully, because the player is looking at something else.</p>
+    <p>Most of the actual design effort went into the fact that this gets used outdoors, in bright sun, one-handed, possibly wearing a glove. Which meant: big tap targets everywhere, plus-and-minus steppers instead of a keyboard, no menus buried behind menus, and dark, light and high-contrast themes so it's readable whatever the sky is doing. It's the same discipline as designing a game HUD. The interface has to lose the fight for attention gracefully, because the player is looking at something else.</p>
 
     <h2>Where It Is Now</h2>
 
-    <p>Rule of 12 is in closed testing on Google Play while I put it through a few more rounds — the real kind, on grass, where it keeps finding things I'd never have caught at a desk. A public release will get announced here and on the socials when it's had enough of that.</p>
+    <p>Rule of 12 is in closed testing on Google Play while I put it through a few more rounds, the real kind, on grass, where it keeps finding things I'd never have caught at a desk. A public release will get announced here and on the socials when it's had enough of that.</p>
 
     <p>Then it's back to the meadow.</p>
 
