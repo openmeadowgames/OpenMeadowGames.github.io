@@ -303,7 +303,7 @@
 
     <p>So there's a second app now: <strong>Rule of 12</strong>, a chipping club selector. It's a different medium and a different audience, but it turned out to be the same job I do every day on the game. Take something fuzzy, find the actual rule underneath it, and put it behind an interface simple enough to use without thinking.</p>
 
-    <h2>The Rule, and Why It's Quietly Broken</h2>
+    <h2>The Rule, and Why It Stopped Working</h2>
 
     <p>The Rule of 12 is old golf-lesson arithmetic. You're just off the green and you want to land the ball on the putting surface and let it run to the hole. Which club? Subtract the club number from 12, and the answer is how far the ball rolls for every yard it carries. An 8-iron: 12 − 8 = 4, so one part carry to four parts roll. A pitching wedge, counted as a 10: 12 − 10 = 2. Pick the club whose ratio matches the shot in front of you.</p>
 
@@ -318,7 +318,7 @@
     <p>The fix is to stop pretending the number means anything and use the thing it was standing in for. Loft is what decides how a chip comes out: less loft flies lower and rolls further, more loft flies higher and stops sooner. So the app asks for your real bag (every club, its actual loft, and whatever you happen to call it) and derives the roll-to-carry ratio from that instead.</p>
 
     <img src="/images/rule-of-12/main-screen.png" alt="The main Rule of 12 screen: mode toggle, two distance inputs, and slope and green speed conditions" class="screen">
-    <p class="caption">Two numbers and two conditions. That's the whole input.</p>
+    <p class="caption">You enter two distances and two conditions, nothing else.</p>
 
     <p>You give it two distances (how far out you want to land the ball, and how far it is from that spot to the flag) and it works backwards:</p>
 
@@ -335,9 +335,9 @@
 
     <h2>Both Directions</h2>
 
-    <p>There are two modes, because there are two ways this question actually shows up on a course. <em>Which club?</em> is the one above. <em>Where to land?</em> is the other half: you've already got a club in your hand, you just want to know where to aim. Same relationship, solved for the other variable.</p>
+    <p>The app has a mode for each way this question comes up on a course. <em>Which club?</em> is the one above. <em>Where to land?</em> is the other half: you've already got a club in your hand, you just want to know where to aim. Same relationship, solved for the other variable.</p>
 
-    <h2>The Best Decision: Only the Ratio Matters</h2>
+    <h2>Only the Ratio Matters</h2>
 
     <p>The bit I'm most pleased with came free with the math.</p>
 
@@ -351,7 +351,7 @@
 
     <p>The subtle part is that the slope that matters is the ground <em>between the landing spot and the hole</em>, the part the ball rolls across, not the lie you happen to be standing in. Getting people to read the right piece of ground turned out to be more of a copywriting problem than a code problem.</p>
 
-    <h2>Where It Got Useful</h2>
+    <h2>Logging Your Own Shots</h2>
 
     <p>All of the above is theory. The theory assumes a clean strike, and you are a person with a golf swing.</p>
 
@@ -368,7 +368,7 @@
 
     <p>Most of the actual design effort went into the fact that this gets used outdoors, in bright sun, one-handed, possibly wearing a glove. Which meant: big tap targets everywhere, plus-and-minus steppers instead of a keyboard, no menus buried behind menus, and dark, light and high-contrast themes so it's readable whatever the sky is doing. It's the same discipline as designing a game HUD. The interface has to lose the fight for attention gracefully, because the player is looking at something else.</p>
 
-    <h2>Where It Is Now</h2>
+    <h2>In Closed Testing</h2>
 
     <p>Rule of 12 is in closed testing on Google Play while I put it through a few more rounds, the real kind, on grass, where it keeps finding things I'd never have caught at a desk. A public release will get announced here and on the socials when it's had enough of that.</p>
 

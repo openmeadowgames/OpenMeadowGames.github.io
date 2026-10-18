@@ -290,7 +290,7 @@
     <p>Almost every water shader tutorial starts the same way: wiggle the UVs with some noise so the texture ripples. That works great on a single big sprite. It falls apart completely on a tilemap, because all the tiles live together in one texture atlas. The moment you displace UVs, each water tile starts sampling its neighbours in the atlas, and suddenly there are chunks of cliff and sand smearing through your ocean.</p>
     <p>My water is painted as tiles, and I wanted to keep it that way: painting water in the tilemap editor is fast and flexible. So the shader had one hard rule: it can change brightness and colour, but it can never move a pixel.</p>
 
-    <h2>Layers, Not Tricks</h2>
+    <h2>A Stack of Simple Layers</h2>
     <p>It turns out you don't need distortion at all. The final effect is a stack of simple layers, each one cheap on its own:</p>
     <ul>
       <li><strong>Depth gradient</strong> — the water blends from a shallow turquoise to a deep navy, snapped to a handful of discrete colour bands so it reads as pixel art instead of a smooth airbrushed fade.</li>
@@ -305,10 +305,10 @@
     <p>The solution: when the scene loads, a script reads the water tiles and runs a flood fill outward from the shore, building a little texture where each pixel stores how far it is from land. The shader samples that map to decide how deep (and how dark) each spot of water should be, and the foam knows exactly where the shoreline is because that's just where the depth hits zero.</p>
     <p>The best part is that it's all generated from the tile data at load time. If I repaint the coastline tomorrow, the depth map, the gradient, and the foam all just follow along. No code changes, no hand-authored masks.</p>
 
-    <h2>What's Next</h2>
+    <h2>More Water Coming</h2>
     <p>The Coastal Cliffs are close to their end-of-content pass now, and this water pushes the whole scene up a level. The same shader is ready to drop onto any future lake, river, or tide pool. It's all driven by tile data, so new locations get living water for free.</p>
 
-    <p>Thanks for following the journey. More updates soon.</p>
+    <p>Thanks for reading. More soon.</p>
 
     <footer class="article-footer">
       <a href="/blog/" class="back-link">← Back to Blog</a>
