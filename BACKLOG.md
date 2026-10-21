@@ -63,6 +63,31 @@ accounts. Not urgent — a "clean up before the studio grows" pass.
   email + phone, saved backup codes. It's the single point of failure once
   everything hangs off it.
 
+## Funding / Incorporation
+
+- [ ] **Creative BC — Video Games Early Stage Growth** — SKIPPED 2026/27
+  intake (deadline was Nov 2, 2026). Not ready to incorporate yet. Revisit
+  for a future intake (the 2026/27 round opened mid-September, so watch for
+  the next one around then). It's a pilot program, so check it still exists.
+  - Up to $50K, non-repayable, competitive. For studios with ≤1 released game.
+  - Must be an **incorporated** for-profit BC/Canadian company, head office in
+    BC, majority owned by BC residents. A sole proprietorship doesn't qualify.
+  - Company must own 100% of the game IP. 75%+ of spending must be in BC.
+  - Needs: 4-page business plan, 10-page pitch deck + video, budget,
+    shareholder/director info, team bios, incumbency certificate.
+  - Program page: https://creativebc.com/funding-program/interactive-digital-media/video-games-early-stage-growth/
+  - Contact: Nicholas Klassen, nklassen@creativebc.com
+- [ ] **Incorporate the studio** — prerequisite for the grant above, and for
+  the BC Interactive Digital Media Tax Credit / most other game funding.
+  - Online at bcregistry.gov.bc.ca. ~$350 to incorporate. Numbered company
+    skips the name wait; "Open Meadow Games Inc." needs a Name Request
+    ($30 regular ~5 business days, $130 priority ~1–2 days).
+  - After: issue shares to self, business bank account, assign game IP from
+    me to the company, new GST number if needed, close the sole prop.
+  - Talk to an accountant first about moving the IP/assets over (Section 85
+    rollover) and the yearly corporate tax return cost.
+  - Start this a few weeks before any grant deadline, not days.
+
 ## Maintenance / Tech Debt
 
 - [ ] **Shared stylesheet** — every page duplicates ~200 lines of identical
