@@ -5,16 +5,8 @@
   <link>https://openmeadowgames.com/blog/</link>
   <description>Behind the scenes at Open Meadow Games. Game design decisions, art updates, and stories from the development of Park &amp; Hide.</description>
   <language>en-ca</language>
-  <lastBuildDate>Mon, 17 Aug 2026 12:00:00 -0700</lastBuildDate>
+  <lastBuildDate>Tue, 07 Jul 2026 12:00:00 -0700</lastBuildDate>
   <atom:link href="https://openmeadowgames.com/feed.xml" rel="self" type="application/rss+xml"/>
-
-  <item>
-    <title>Building Rule of 12</title>
-    <link>https://openmeadowgames.com/blog/rule-of-12.html</link>
-    <guid>https://openmeadowgames.com/blog/rule-of-12.html</guid>
-    <pubDate>Mon, 17 Aug 2026 12:00:00 -0700</pubDate>
-    <description>A side project, not a Park &amp; Hide update: a golf chipping club selector built on the lofts actually in your bag rather than the numbers stamped on the sole. Why the old rule stopped working, and what it took to fix it.</description>
-  </item>
 
   <item>
     <title>Making the Ocean Move</title>
