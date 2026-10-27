@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Van and the Workbench — Open Meadow Games</title>
+  <meta name="description" content="Crafting in Park &amp; Hide now happens at a workbench: drop your materials onto a pencil blueprint, hammer the piece together, then place it in your van. Plus a redrawn van interior and furniture that comes in several looks." />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Open Meadow Games" />
+  <meta property="og:title" content="The Van and the Workbench" />
+  <meta property="og:description" content="Crafting in Park &amp; Hide now happens at a workbench: drop your materials onto a pencil blueprint, hammer the piece together, then place it in your van. Plus a redrawn van interior and furniture that comes in several looks." />
+  <meta property="og:url" content="https://openmeadowgames.com/blog/van-workbench-crafting.html" />
+  <meta property="og:image" content="https://openmeadowgames.com/images/van-workbench-thumb.jpg" />
+  <meta property="article:published_time" content="2026-10-27" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://openmeadowgames.com/images/van-workbench-thumb.jpg" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NBWSTQCE01"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NBWSTQCE01');
+  </script>
+  <link rel="icon" href="/favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png"/>
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+  <link rel="alternate" type="application/rss+xml" title="Open Meadow Games — Development Log" href="/feed.xml"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest:   #2C4A2E;
+      --gold:     #C8A84B;
+      --cream:    #F2EDE4;
+      --mist:     #8FA89C;
+      --bark:     #5C3D2E;
+      --light:    #FAFAF7;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--forest);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 2.5rem;
+      background: rgba(242,237,228,0.88);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(44,74,46,0.1);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--forest);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--gold); }
+    nav ul {
+      list-style: none;
+      display: flex; gap: 2rem;
+    }
+    nav ul a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--forest);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+    nav ul a:hover { opacity: 1; }
+
+    /* ── CONTENT ── */
+    article {
+      padding-top: 8rem;
+      padding-bottom: 6rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .article-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .article-header {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    article h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.2;
+      color: var(--forest);
+      margin-bottom: 0.8rem;
+    }
+
+    article h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .article-meta {
+      font-size: 0.9rem;
+      color: var(--mist);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+    }
+
+    .article-meta span {
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    article p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--bark);
+      margin-bottom: 1.5rem;
+    }
+
+    article h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--forest);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    article h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--forest);
+      margin-top: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    article img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin: 2rem 0;
+      display: block;
+    }
+
+    article ul, article ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--bark);
+    }
+
+    article li {
+      margin-bottom: 0.6rem;
+      line-height: 1.8;
+    }
+
+    .article-footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(44,74,46,0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      background: var(--forest);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .back-link:hover { background: var(--bark); }
+
+    .article-share {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .share-link {
+      display: inline-block;
+      padding: 0.6rem 1.1rem;
+      background: rgba(242,237,228,0.08);
+      border: 1px solid rgba(242,237,228,0.55);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .share-link:hover {
+      background: rgba(44,74,46,0.05);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    button.share-link {
+      font-family: inherit;
+      cursor: pointer;
+    }
+    button.share-link:hover {
+      background: rgba(44,74,46,0.05);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1a2e1b;
+      color: rgba(242,237,228,0.4);
+      text-align: center;
+      padding: 1.8rem 2rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+    }
+    footer span { color: var(--gold); opacity: 0.7; }
+    footer p { max-width: none; margin-left: auto; margin-right: auto; text-align: center; color: inherit; font-size: inherit; line-height: 1.6; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      nav { padding: 1rem 1.2rem; }
+      nav ul { gap: 0.9rem; }
+      nav ul a { font-size: 0.7rem; }
+      article { padding-top: 6rem; }
+      .article-footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="/">Open <em>Meadow</em> <span>Games</span></a>
+  <ul>
+    <li><a href="/#about">Studio</a></li>
+    <li><a href="/park-and-hide/">Park & Hide</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/#connect">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- ARTICLE -->
+<article>
+  <div class="article-container">
+    <header class="article-header">
+      <h1>The Van and the <em>Workbench</em></h1>
+      <div class="article-meta">
+        <span>October 27, 2026</span>
+        <span>Development Update</span>
+      </div>
+    </header>
+
+    <p>Your van is your home in Park &amp; Hide, so how you build and arrange it matters a lot. This month I redrew the inside of the van and replaced the old crafting menu with something much more hands on.</p>
+
+    <video controls autoplay muted loop playsinline style="width:100%;border-radius:4px;margin:2rem 0;">
+      <source src="/blog/van-workbench.mp4" type="video/mp4">
+    </video>
+
+    <h2>The Workbench</h2>
+    <p>Crafting used to be a list with a button. Now Craft opens a workbench. The piece you're making shows up as a pencil sketch on graph paper, with dashed slots beside it for the materials it needs. You drag driftwood, scrap wood, shells or parts from the tray into the slots and press Build.</p>
+    <p>Then you hammer it together. A few nails light up on the sketch, you tap them in, and the finished piece fills in over the drawing with a bit of sawdust and shake. When it's done it flies off into your inventory. It only takes a few seconds, but making a chair feels like you made a chair.</p>
+    <p>There's also a little wordless instruction leaflet tucked under the blueprint, the flat-pack kind, with a blob person and a couple of cats who are always in the way.</p>
+
+    <h2>A Proper Camper Conversion</h2>
+    <p>The van interior was redrawn to look like an actual camper build: birch floors, panelled walls, rounded van windows, an LED strip along the ceiling, and a body colour that changes as you upgrade. Later upgrades add a wet room with a toilet, a sink with a drawer that opens, a mirror, a towel rail and a shower.</p>
+    <p>Your cats live in here too. They wander the floor, nap on beds and cat trees, and you can crouch down to pet them.</p>
+
+    <h2>Pieces With Different Looks</h2>
+    <p>A lot of furniture now comes in several looks. In the inventory you'll see little arrows on a piece, like a chair with five styles or a bed with ten, and you can flip through them before you place it. You can also change the look of something that's already in the van. Every piece can face four directions, so you can turn the sofa toward the window or tuck the bed into a corner.</p>
+    <p>The van also stops you before a layout blocks you in. Try to put a chair where you'd have no way past it and you'll get a polite "That would box you in."</p>
+
+    <p>Next I want more pieces to build and more ways to make the van feel like yours. Thanks for reading.</p>
+
+    <footer class="article-footer">
+      <a href="/blog/" class="back-link">← Back to Blog</a>
+      <div class="article-share">
+        <a href="https://twitter.com/intent/tweet?text=The%20Van%20and%20the%20Workbench&url=https%3A%2F%2Fopenmeadowgames.com%2Fblog%2Fvan-workbench-crafting.html" target="_blank" rel="noopener" class="share-link">Share on X</a>
+        <a href="https://bsky.app/intent/compose?text=The%20Van%20and%20the%20Workbench%20https%3A%2F%2Fopenmeadowgames.com%2Fblog%2Fvan-workbench-crafting.html" target="_blank" rel="noopener" class="share-link">Share on Bluesky</a>
+        <button class="share-link" onclick="navigator.clipboard.writeText('https://openmeadowgames.com/blog/van-workbench-crafting.html').then(() => { this.textContent = 'Link Copied!'; setTimeout(() => this.textContent = 'Copy Link', 1500); })">Copy Link</button>
+      </div>
+    </footer>
+  </div>
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>Open Meadow Games</span> — Vancouver, British Columbia, Canada. All rights reserved.</p>
+  <p style="margin-top:0.5rem;font-size:0.72rem;opacity:0.75;">All artwork, videos, screenshots, and text on this site, including all game content shown, are the property of Open Meadow Games and may not be reproduced or redistributed without written permission.</p>
+</footer>
+
+</body>
+</html>
