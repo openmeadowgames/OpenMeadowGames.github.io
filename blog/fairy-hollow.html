@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fairy Hollow in Pine Forest — Open Meadow Games</title>
+  <meta name="description" content="I added a small clearing to Pine Forest with six little houses in it." />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Open Meadow Games" />
+  <meta property="og:title" content="Fairy Hollow in Pine Forest" />
+  <meta property="og:description" content="I added a small clearing to Pine Forest with six little houses in it." />
+  <meta property="og:url" content="https://openmeadowgames.com/blog/fairy-hollow.html" />
+  <meta property="og:image" content="https://openmeadowgames.com/images/fairy-hollow-thumb.jpg" />
+  <meta property="article:published_time" content="2026-10-31" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://openmeadowgames.com/images/fairy-hollow-thumb.jpg" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NBWSTQCE01"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NBWSTQCE01');
+  </script>
+  <link rel="icon" href="/favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png"/>
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+  <link rel="alternate" type="application/rss+xml" title="Open Meadow Games — Development Log" href="/feed.xml"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest:   #2C4A2E;
+      --gold:     #C8A84B;
+      --cream:    #F2EDE4;
+      --mist:     #8FA89C;
+      --bark:     #5C3D2E;
+      --light:    #FAFAF7;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--forest);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 2.5rem;
+      background: rgba(242,237,228,0.88);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(44,74,46,0.1);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--forest);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--gold); }
+    nav ul {
+      list-style: none;
+      display: flex; gap: 2rem;
+    }
+    nav ul a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--forest);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+    nav ul a:hover { opacity: 1; }
+
+    /* ── CONTENT ── */
+    article {
+      padding-top: 8rem;
+      padding-bottom: 6rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .article-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .article-header {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    article h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.2;
+      color: var(--forest);
+      margin-bottom: 0.8rem;
+    }
+
+    article h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .article-meta {
+      font-size: 0.9rem;
+      color: var(--mist);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+    }
+
+    .article-meta span {
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    article p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--bark);
+      margin-bottom: 1.5rem;
+    }
+
+    article h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--forest);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    article h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--forest);
+      margin-top: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    article img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin: 2rem 0;
+      display: block;
+    }
+
+    article ul, article ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--bark);
+    }
+
+    article li {
+      margin-bottom: 0.6rem;
+      line-height: 1.8;
+    }
+
+    .article-footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(44,74,46,0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      background: var(--forest);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .back-link:hover { background: var(--bark); }
+
+    .article-share {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .share-link {
+      display: inline-block;
+      padding: 0.6rem 1.1rem;
+      background: rgba(242,237,228,0.08);
+      border: 1px solid rgba(242,237,228,0.55);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .share-link:hover {
+      background: rgba(44,74,46,0.05);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    button.share-link {
+      font-family: inherit;
+      cursor: pointer;
+    }
+    button.share-link:hover {
+      background: rgba(44,74,46,0.05);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1a2e1b;
+      color: rgba(242,237,228,0.4);
+      text-align: center;
+      padding: 1.8rem 2rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+    }
+    footer span { color: var(--gold); opacity: 0.7; }
+    footer p { max-width: none; margin-left: auto; margin-right: auto; text-align: center; color: inherit; font-size: inherit; line-height: 1.6; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      nav { padding: 1rem 1.2rem; }
+      nav ul { gap: 0.9rem; }
+      nav ul a { font-size: 0.7rem; }
+      article { padding-top: 6rem; }
+      .article-footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="/">Open <em>Meadow</em> <span>Games</span></a>
+  <ul>
+    <li><a href="/#about">Studio</a></li>
+    <li><a href="/park-and-hide/">Park & Hide</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/#connect">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- ARTICLE -->
+<article>
+  <div class="article-container">
+    <header class="article-header">
+      <h1>Fairy Hollow in <em>Pine Forest</em></h1>
+      <div class="article-meta">
+        <span>October 31, 2026</span>
+        <span>Development Update</span>
+      </div>
+    </header>
+
+    <p>I added a small clearing to the south-west corner of Pine Forest, at the end of a short trail off the beach path.</p>
+
+    <img src="/images/fairy-hollow-day.png" alt="Fairy Hollow by day: six little houses in a forest clearing in Park &amp; Hide" style="width:100%;border-radius:4px;margin:2rem 0;image-rendering:pixelated;">
+
+    <h2>The Houses</h2>
+    <p>There are six of them: a tree house with stairs up the trunk, a toadstool, a gourd, a teacup, a watering can and a flowerpot. Gus lives here. He used to build sets for a theatre, and he made the houses out of old props.</p>
+
+    <h2>Gus's Table</h2>
+    <p>Gus is around during the day and runs a swap table. You can trade wood and parts back and forth, or shells for fish. He doesn't take money.</p>
+
+    <h2>At Night</h2>
+    <img src="/images/fairy-hollow-night.png" alt="Fairy Hollow at night, with the windows and lanterns lit" style="width:100%;border-radius:4px;margin:2rem 0;image-rendering:pixelated;">
+    <p>After dark the windows and lanterns light up, and the rest of the clearing goes dark.</p>
+
+    <h2>The Cat</h2>
+    <p>A brown cat sleeps on the teacup's saucer. She likes fish.</p>
+
+    <footer class="article-footer">
+      <a href="/blog/" class="back-link">← Back to Blog</a>
+      <div class="article-share">
+        <a href="https://twitter.com/intent/tweet?text=Fairy%20Hollow%20in%20Pine%20Forest&url=https%3A%2F%2Fopenmeadowgames.com%2Fblog%2Ffairy-hollow.html" target="_blank" rel="noopener" class="share-link">Share on X</a>
+        <a href="https://bsky.app/intent/compose?text=Fairy%20Hollow%20in%20Pine%20Forest%20https%3A%2F%2Fopenmeadowgames.com%2Fblog%2Ffairy-hollow.html" target="_blank" rel="noopener" class="share-link">Share on Bluesky</a>
+        <button class="share-link" onclick="navigator.clipboard.writeText('https://openmeadowgames.com/blog/fairy-hollow.html').then(() => { this.textContent = 'Link Copied!'; setTimeout(() => this.textContent = 'Copy Link', 1500); })">Copy Link</button>
+      </div>
+    </footer>
+  </div>
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>Open Meadow Games</span> — Vancouver, British Columbia, Canada. All rights reserved.</p>
+  <p style="margin-top:0.5rem;font-size:0.72rem;opacity:0.75;">All artwork, videos, screenshots, and text on this site, including all game content shown, are the property of Open Meadow Games and may not be reproduced or redistributed without written permission.</p>
+</footer>
+
+</body>
+</html>

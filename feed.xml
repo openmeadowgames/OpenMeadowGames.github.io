@@ -5,8 +5,16 @@
   <link>https://openmeadowgames.com/blog/</link>
   <description>Behind the scenes at Open Meadow Games. Game design decisions, art updates, and stories from the development of Park &amp; Hide.</description>
   <language>en-ca</language>
-  <lastBuildDate>Tue, 27 Oct 2026 12:00:00 -0700</lastBuildDate>
+  <lastBuildDate>Sat, 31 Oct 2026 12:00:00 -0700</lastBuildDate>
   <atom:link href="https://openmeadowgames.com/feed.xml" rel="self" type="application/rss+xml"/>
+
+  <item>
+    <title>Fairy Hollow in Pine Forest</title>
+    <link>https://openmeadowgames.com/blog/fairy-hollow.html</link>
+    <guid>https://openmeadowgames.com/blog/fairy-hollow.html</guid>
+    <pubDate>Sat, 31 Oct 2026 12:00:00 -0700</pubDate>
+    <description>I added a small clearing to Pine Forest with six little houses in it.</description>
+  </item>
 
   <item>
     <title>An RV Park at the Coastal Cliffs</title>
