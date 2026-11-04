@@ -9,6 +9,14 @@
   <atom:link href="https://openmeadowgames.com/feed.xml" rel="self" type="application/rss+xml"/>
 
   <item>
+    <title>The Teacup House</title>
+    <link>https://openmeadowgames.com/blog/teacup-house.html</link>
+    <guid>https://openmeadowgames.com/blog/teacup-house.html</guid>
+    <pubDate>Wed, 04 Nov 2026 12:00:00 -0800</pubDate>
+    <description>A closer look at the teacup house in Fairy Hollow, and the cat asleep on its saucer.</description>
+  </item>
+
+  <item>
     <title>The Toadstool House</title>
     <link>https://openmeadowgames.com/blog/toadstool-house.html</link>
     <guid>https://openmeadowgames.com/blog/toadstool-house.html</guid>
