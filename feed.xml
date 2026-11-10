@@ -5,8 +5,16 @@
   <link>https://openmeadowgames.com/blog/</link>
   <description>Behind the scenes at Open Meadow Games. Game design decisions, art updates, and stories from the development of Park &amp; Hide.</description>
   <language>en-ca</language>
-  <lastBuildDate>Mon, 02 Nov 2026 12:00:00 -0800</lastBuildDate>
+  <lastBuildDate>Mon, 09 Nov 2026 22:45:00 -0800</lastBuildDate>
   <atom:link href="https://openmeadowgames.com/feed.xml" rel="self" type="application/rss+xml"/>
+
+  <item>
+    <title>The Fishing Reel</title>
+    <link>https://openmeadowgames.com/blog/fishing-reel.html</link>
+    <guid>https://openmeadowgames.com/blog/fishing-reel.html</guid>
+    <pubDate>Mon, 09 Nov 2026 22:45:00 -0800</pubDate>
+    <description>Fishing has a reel now: scroll the mouse wheel toward you to bring the fish in.</description>
+  </item>
 
   <item>
     <title>The Teacup House</title>
