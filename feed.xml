@@ -69,7 +69,7 @@
     <link>https://openmeadowgames.com/blog/animated-ocean-water.html</link>
     <guid>https://openmeadowgames.com/blog/animated-ocean-water.html</guid>
     <pubDate>Tue, 07 Jul 2026 12:00:00 -0700</pubDate>
-    <description>The Coastal Cliffs finally have living water: drifting caustics, shoreline foam, sun sparkles, and a depth gradient that hugs the coast. Here's how I built animated ocean water on a Godot tilemap without ever distorting a single pixel.</description>
+    <description>I made the ocean at the Coastal Cliffs move.</description>
   </item>
 
   <item>
@@ -77,7 +77,7 @@
     <link>https://openmeadowgames.com/blog/ricardos-shelter-and-tileset-refresh.html</link>
     <guid>https://openmeadowgames.com/blog/ricardos-shelter-and-tileset-refresh.html</guid>
     <pubDate>Wed, 17 Jun 2026 12:00:00 -0700</pubDate>
-    <description>Ricardo and his dog shelter are now wired into the Rest Stop, plus a tileset refresh swaps the old numbered pack for proper Beach and Large Cliff/Sand/Dirt/Grass sets.</description>
+    <description>Ricardo and his dog shelter are at the Rest Stop now.</description>
   </item>
 
   <item>
@@ -85,7 +85,7 @@
     <link>https://openmeadowgames.com/blog/npc-animation-update.html</link>
     <guid>https://openmeadowgames.com/blog/npc-animation-update.html</guid>
     <pubDate>Tue, 16 Jun 2026 12:00:00 -0700</pubDate>
-    <description>New tilesets, environment concepts, and animated tileset work for Park &amp; Hide.</description>
+    <description>I replaced the ground tiles, and the beaches are animated now.</description>
   </item>
 
   <item>
@@ -93,7 +93,7 @@
     <link>https://openmeadowgames.com/blog/studio-launch.html</link>
     <guid>https://openmeadowgames.com/blog/studio-launch.html</guid>
     <pubDate>Wed, 10 Jun 2026 12:00:00 -0700</pubDate>
-    <description>Open Meadow Games is officially registered in British Columbia. Studio website is live, social media is set up, and Park &amp; Hide is in active development.</description>
+    <description>Open Meadow Games is officially a studio now, and Park &amp; Hide is its first game.</description>
   </item>
 
 </channel>
