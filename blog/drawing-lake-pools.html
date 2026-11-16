@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Drawing the Lake Pools — Open Meadow Games</title>
+  <meta name="description" content="How I draw the deep pools in the lakes, in six steps, with the script." />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Open Meadow Games" />
+  <meta property="og:title" content="Drawing the Lake Pools" />
+  <meta property="og:description" content="How I draw the deep pools in the lakes, in six steps, with the script." />
+  <meta property="og:url" content="https://openmeadowgames.com/blog/drawing-lake-pools.html" />
+  <meta property="og:image" content="https://openmeadowgames.com/images/drawing-lake-pools-thumb.jpg" />
+  <meta property="article:published_time" content="2026-11-16" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://openmeadowgames.com/images/drawing-lake-pools-thumb.jpg" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NBWSTQCE01"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NBWSTQCE01');
+  </script>
+  <link rel="icon" href="/favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png"/>
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+  <link rel="alternate" type="application/rss+xml" title="Open Meadow Games — Development Log" href="/feed.xml"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest:   #2C4A2E;
+      --gold:     #C8A84B;
+      --cream:    #F2EDE4;
+      --mist:     #8FA89C;
+      --bark:     #5C3D2E;
+      --light:    #FAFAF7;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--forest);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 2.5rem;
+      background: rgba(242,237,228,0.88);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(44,74,46,0.1);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--forest);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--gold); }
+    nav ul {
+      list-style: none;
+      display: flex; gap: 2rem;
+    }
+    nav ul a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--forest);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+    nav ul a:hover { opacity: 1; }
+
+    /* ── CONTENT ── */
+    article {
+      padding-top: 8rem;
+      padding-bottom: 6rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .article-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .article-header {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    article h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.2;
+      color: var(--forest);
+      margin-bottom: 0.8rem;
+    }
+
+    article h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .article-meta {
+      font-size: 0.9rem;
+      color: var(--mist);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+    }
+
+    .article-meta span {
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    article p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--bark);
+      margin-bottom: 1.5rem;
+    }
+
+    article h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--forest);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    article h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--forest);
+      margin-top: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    article img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin: 2rem 0;
+      display: block;
+    }
+
+    article ul, article ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--bark);
+    }
+
+    article li {
+      margin-bottom: 0.6rem;
+      line-height: 1.8;
+    }
+
+    .article-footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(44,74,46,0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      background: var(--forest);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .back-link:hover { background: var(--bark); }
+
+    .article-share {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .share-link {
+      display: inline-block;
+      padding: 0.6rem 1.1rem;
+      background: rgba(242,237,228,0.08);
+      border: 1px solid rgba(242,237,228,0.55);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .share-link:hover {
+      background: rgba(44,74,46,0.05);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    button.share-link {
+      font-family: inherit;
+      cursor: pointer;
+    }
+    button.share-link:hover {
+      background: rgba(44,74,46,0.05);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1a2e1b;
+      color: rgba(242,237,228,0.4);
+      text-align: center;
+      padding: 1.8rem 2rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+    }
+    footer span { color: var(--gold); opacity: 0.7; }
+    footer p { max-width: none; margin-left: auto; margin-right: auto; text-align: center; color: inherit; font-size: inherit; line-height: 1.6; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      nav { padding: 1rem 1.2rem; }
+      nav ul { gap: 0.9rem; }
+      nav ul a { font-size: 0.7rem; }
+      article { padding-top: 6rem; }
+      .article-footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="/">Open <em>Meadow</em> <span>Games</span></a>
+  <ul>
+    <li><a href="/#about">Studio</a></li>
+    <li><a href="/park-and-hide/">Park & Hide</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/#connect">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- ARTICLE -->
+<article>
+  <div class="article-container">
+    <header class="article-header">
+      <h1>Drawing the <em>Lake Pools</em></h1>
+      <div class="article-meta">
+        <span>November 16, 2026</span>
+        <span>Development Update</span>
+      </div>
+    </header>
+
+    <p>I wrote down how I draw the deep pools in the lakes. It's the same six steps for every pool.</p>
+
+<h2>The Outline</h2>
+<p>I start from the shape of the hole and let it spread a little over the open water, so the pool is bigger than the hole.</p>
+<img src="/images/lake-pools-step-1.png" alt="The Outline: one pool drawn up to this step" style="width:100%;max-width:560px;display:block;margin:1.5rem auto;border-radius:4px;image-rendering:pixelated;">
+
+<h2>The Depth</h2>
+<p>Every pixel gets a depth: shallow at the rim, deepest in the middle. Then I bend it so it isn't even. One side gets a wide shelf and the other a steep wall, and the long pools get two deep wells.</p>
+<img src="/images/lake-pools-step-2.png" alt="The Depth: one pool drawn up to this step" style="width:100%;max-width:560px;display:block;margin:1.5rem auto;border-radius:4px;image-rendering:pixelated;">
+
+<h2>The Ledges</h2>
+<p>I cut the depth into four flat steps, each one a shade darker than the last. Flat bands read as ledges. A smooth fade doesn't.</p>
+<img src="/images/lake-pools-step-3.png" alt="The Ledges: one pool drawn up to this step" style="width:100%;max-width:560px;display:block;margin:1.5rem auto;border-radius:4px;image-rendering:pixelated;">
+
+<h2>Walls and Shadows</h2>
+<p>The light comes from the top left, so each ledge throws a short shadow down and to the right. The walls only show on the far side, because that's the side facing you.</p>
+<img src="/images/lake-pools-step-4.png" alt="Walls and Shadows: one pool drawn up to this step" style="width:100%;max-width:560px;display:block;margin:1.5rem auto;border-radius:4px;image-rendering:pixelated;">
+
+<h2>The Rim</h2>
+<p>A thin rim one shade under the lake colour, with a few lighter bits on the side facing the light. A bright ring makes the pool look stuck on.</p>
+<img src="/images/lake-pools-step-5.png" alt="The Rim: one pool drawn up to this step" style="width:100%;max-width:560px;display:block;margin:1.5rem auto;border-radius:4px;image-rendering:pixelated;">
+
+<h2>Moss and Roots</h2>
+<p>Moss hangs over the lip, mostly on the shaded far side, and a few roots trail down the wall.</p>
+<img src="/images/lake-pools-step-6.png" alt="Moss and Roots: one pool drawn up to this step" style="width:100%;max-width:560px;display:block;margin:1.5rem auto;border-radius:4px;image-rendering:pixelated;">
+
+<h2>Three Looks</h2>
+<p>The same outline with a different depth gives a different pool: lopsided, two wells, or both. I mix them across a lake so no two match.</p>
+<img src="/images/lake-pools-looks.png" alt="The same pool drawn three ways: lopsided, two wells, and both" style="width:100%;max-width:864px;display:block;margin:2rem auto;border-radius:4px;image-rendering:pixelated;">
+
+<h2>Try It</h2>
+<p>The whole thing is one small Python script. Install Python 3, run <code>pip install numpy pillow</code>, then <code>python sinkhole.py 7 L --steps</code>. The number is the seed, the letter picks the look (I, J or L), and <code>--steps</code> saves a picture of each step like the ones above. <a href="/files/sinkhole.py" download>Download sinkhole.py</a>.</p>
+<pre style="background:#13201a;color:#d6eadc;font:13px/1.5 Consolas,Menlo,monospace;padding:16px;border-radius:6px;overflow:auto;max-height:520px;margin:1.5rem 0;"><code>&quot;&quot;&quot;Vee&#x27;s sinkhole pool for a top-down pixel-art lake.
+pip install numpy pillow     then:  python sinkhole.py [seed] [I|J|L] [--steps]
+Writes sinkhole_&lt;look&gt;_&lt;seed&gt;.png (transparent outside the pool) and a 4x preview on lake colour.&quot;&quot;&quot;
+import sys
+import numpy as np
+from PIL import Image, ImageFilter, ImageDraw
+
+ARGS = [a for a in sys.argv[1:] if not a.startswith(&quot;--&quot;)]
+STEPS = &quot;--steps&quot; in sys.argv          # also save one picture per step (handy for a video)
+SEED = int(ARGS[0]) if len(ARGS) &gt; 0 else 7
+LOOK = ARGS[1] if len(ARGS) &gt; 1 else &quot;L&quot;
+W, H = 220, 180
+rng = np.random.default_rng(SEED)
+yy, xx = np.mgrid[0:H, 0:W]
+
+LAKE = (70, 146, 76)
+# shallow -&gt; deep, each step one value darker (tops), plus the wall faces and lit lips for each step
+TOPS = [(62, 142, 80), (42, 128, 80), (22, 106, 70), (4, 82, 56)]
+FACES = [(30, 114, 74), (12, 92, 62), (2, 74, 50)]
+LITS = [(72, 152, 88), (52, 138, 86), (32, 120, 78)]
+CREVICE, CAST, CORE = (0, 60, 42), (8, 86, 60), (0, 66, 46)
+MOSS, MOSS_LIT, MOSS_SHADE, ROOT = (58, 150, 84), (86, 172, 100), (24, 112, 72), (40, 92, 64)
+
+
+def noise(cell, amp):
+    &quot;&quot;&quot;smooth value noise: random grid, blown up with bicubic&quot;&quot;&quot;
+    g = rng.random((H // cell + 2, W // cell + 2))
+    img = Image.fromarray((g * 255).astype(np.uint8)).resize((W + 2 * cell, H + 2 * cell), Image.BICUBIC)
+    return (np.asarray(img)[:H, :W] / 255.0 - 0.5) * 2 * amp
+
+
+def distance_in(mask):
+    &quot;&quot;&quot;px from each pool pixel to the nearest outside pixel (two-pass chamfer, good enough for art)&quot;&quot;&quot;
+    big = 10 ** 6
+    dist = np.where(mask, big, 0).astype(float)
+    a, b = 1.0, 1.4142
+    for y in range(H):
+        for x in range(W):
+            if dist[y, x]:
+                v = dist[y, x]
+                if x: v = min(v, dist[y, x - 1] + a)
+                if y: v = min(v, dist[y - 1, x] + a)
+                if x and y: v = min(v, dist[y - 1, x - 1] + b)
+                if y and x &lt; W - 1: v = min(v, dist[y - 1, x + 1] + b)
+                dist[y, x] = v
+    for y in range(H - 1, -1, -1):
+        for x in range(W - 1, -1, -1):
+            if dist[y, x]:
+                v = dist[y, x]
+                if x &lt; W - 1: v = min(v, dist[y, x + 1] + a)
+                if y &lt; H - 1: v = min(v, dist[y + 1, x] + a)
+                if x &lt; W - 1 and y &lt; H - 1: v = min(v, dist[y + 1, x + 1] + b)
+                if y &lt; H - 1 and x: v = min(v, dist[y + 1, x - 1] + b)
+                dist[y, x] = v
+    return dist
+
+
+def snap(name, rgb, mask):
+    if STEPS:
+        bg = np.zeros((H, W, 3), np.uint8)
+        bg[:] = LAKE
+        bg[mask] = rgb[mask]
+        Image.fromarray(bg).resize((W * 3, H * 3), Image.NEAREST).save(f&quot;step_{name}.png&quot;)
+
+
+def shift(m, dx, dy):
+    return np.roll(np.roll(m, dy, 0), dx, 1)
+
+
+# 1. the outline: two overlapping blobs, softened and wobbled (in a game, start from the hole&#x27;s own tiles)
+blob = np.zeros((H, W))
+for cx, cy, r in ((80, 85, 52), (145, 100, 42)):
+    blob = np.maximum(blob, 1 - np.hypot(xx - cx, (yy - cy) * 1.15) / r)
+pool = (blob + noise(18, 0.18) + noise(6, 0.05)) &gt; 0.15
+pool = np.asarray(Image.fromarray((pool * 255).astype(np.uint8)).filter(ImageFilter.MedianFilter(5))) &gt; 0  # no specks
+pool[[0, -1], :] = False
+pool[:, [0, -1]] = False
+m = Image.fromarray((pool * 255).astype(np.uint8)).copy()            # keep one piece: flood-fill from the blob centre
+sy, sx = np.unravel_index(np.argmax(blob * pool), pool.shape)
+ImageDraw.floodfill(m, (int(sx), int(sy)), 128)
+pool = np.asarray(m) == 128
+
+snap(&quot;1_outline&quot;, np.full((H, W, 3), (40, 120, 70), np.uint8), pool)
+
+# 2. depth: 0 at the rim .. 1 at the deepest point
+d = distance_in(pool)
+D = d.max()
+ang = np.arctan2(yy - yy[pool].mean(), xx - xx[pool].mean())
+
+
+def lopsided():
+    # the ledge width changes round the pool: a wide shelf on one side, a steep wall on the other
+    k = rng.random(3) * 2 - 1
+    ph = rng.random(3) * 6.28
+    wave = sum(k[i] * np.sin((i + 1) * ang + ph[i]) / (i + 1) for i in range(3))
+    return np.clip(d / (D * 0.9 * np.clip(1 + 0.55 * wave, 0.45, 1.6)), 0, 1)
+
+
+def two_wells():
+    # the deepest pixel, plus a second deep spot far enough away to read as its own well
+    ys, xs = np.nonzero(pool)
+    dv = d[ys, xs]
+    i = dv.argmax()
+    far = np.hypot(xs - xs[i], ys - ys[i])
+    score = np.where(far &gt; D * 1.6, dv * np.minimum(far / (D * 2.5), 1), 0)
+    pits = np.clip(1 - np.hypot(xx - xs[i], (yy - ys[i]) * 1.1) / (D * 1.9), 0, 1)
+    j = score.argmax()
+    if score[j] &gt; D * 0.35:
+        pits = np.maximum(pits, 0.85 * np.clip(1 - np.hypot(xx - xs[j], (yy - ys[j]) * 1.1) / (D * 1.9), 0, 1))
+    return pits
+
+
+if LOOK == &quot;I&quot;:
+    t = lopsided()
+elif LOOK == &quot;J&quot;:
+    t = np.minimum(np.clip(d / (D * 0.5), 0, 1), two_wells() * 1.15)
+else:
+    t = np.minimum(lopsided() * 1.1, two_wells() * 1.2)
+t = np.clip(t + noise(9, 0.04), 0, 1)
+snap(&quot;2_depth&quot;, np.repeat((255 - t * 230)[..., None], 3, 2).astype(np.uint8), pool)
+
+# 3. terraces: cut the depth into a few flat steps
+lv = np.digitize(t, [0.14, 0.40, 0.66])             # 0 shallow shelf .. 3 basin
+out = np.zeros((H, W, 3), np.uint8)
+for k in range(4):
+    out[pool &amp; (lv == k)] = TOPS[k]
+snap(&quot;3_terraces&quot;, out, pool)
+
+# 4. walls, light from the top-left: each step casts a shadow down-right onto the next one, and the riser
+#    only shows on the far (north) wall, because the camera looks down and slightly north
+for k, face_h in enumerate((5, 7, 9)):
+    shallow, deeper = pool &amp; (lv &lt;= k), pool &amp; (lv &gt; k)
+    sh = np.zeros_like(shallow)
+    for s in range(1, 9):
+        sh |= shift(shallow, round(4 * s / 8), s)
+    out[deeper &amp; sh] = CAST
+    f = np.zeros_like(shallow)
+    for s in range(1, face_h + 1):
+        f |= shift(shallow, 0, s)
+    face = deeper &amp; f
+    out[face] = FACES[k]
+    out[face &amp; ~shift(face, 0, -1)] = CREVICE      # dark foot of the face
+    edge = shallow &amp; (shift(deeper, -1, 0) | shift(deeper, 0, -1)) &amp; ~f
+    out[edge &amp; (ang &gt; np.radians(-30)) &amp; (ang &lt; np.radians(150))] = LITS[k]   # lit lips on the south/east sides
+out[pool &amp; (t &gt; 0.88)] = CORE
+snap(&quot;4_walls_and_shadows&quot;, out, pool)
+
+# 5. soft rim: one step under the lake colour, with broken lit bits facing the light
+rim = pool &amp; (d &lt; 2.2)
+out[rim] = (66, 146, 80)
+facing = np.cos(ang) * 0.6 + np.sin(ang) * 0.8
+out[rim &amp; (facing &gt; 0.3) &amp; (noise(5, 1) &gt; 0)] = (80, 158, 90)
+
+snap(&quot;5_rim&quot;, out, pool)
+img = np.zeros((H, W, 4), np.uint8)
+img[pool, :3] = out[pool]
+img[pool, 3] = 255
+
+# 6. moss mats over the lip (mostly the shaded far side) and a few roots hanging down the far wall
+ys, xs = np.nonzero(pool &amp; (d &lt; 1.5))
+north = (ang[ys, xs] &lt; np.radians(-15)) &amp; (ang[ys, xs] &gt; np.radians(-165))
+picks = []
+for i in rng.permutation(len(xs)):
+    gap = 16 if north[i] else 24
+    if all(np.hypot(xs[i] - a, ys[i] - b) &gt;= gap for a, b in picks):
+        picks.append((xs[i], ys[i]))
+for x0, y0 in picks[:10]:
+    mat = np.zeros((H, W), bool)
+    for _ in range(rng.integers(3, 6)):
+        cx, cy, r = x0 + rng.uniform(-6, 6), y0 + rng.uniform(-2, 2), rng.uniform(2, 3.8)
+        mat |= (xx - cx) ** 2 + ((yy - cy) / 0.8) ** 2 &lt;= r * r
+    under = shift(mat, 1, 2) &amp; ~mat &amp; pool
+    img[under, :3] = MOSS_SHADE
+    img[mat, :3] = MOSS
+    img[mat &amp; ~shift(mat, 1, 1), :3] = MOSS_LIT
+    img[mat | under, 3] = 255
+for x0, y0 in [p for p in picks if ang[p[1], p[0]] &lt; np.radians(-30) and ang[p[1], p[0]] &gt; np.radians(-150)][:4]:
+    x, y = float(x0), float(y0) + 1
+    for s in range(int(rng.uniform(12, 22))):
+        x += rng.uniform(-0.6, 0.6)
+        y += 1
+        if 0 &lt;= int(y) &lt; H and 0 &lt;= int(x) &lt; W - 1 and pool[int(y), int(x)]:
+            img[int(y), int(x):int(x) + (2 if s &lt; 9 else 1), :3] = ROOT
+
+snap(&quot;6_moss_and_roots&quot;, img[..., :3], img[..., 3] &gt; 0)
+name = f&quot;sinkhole_{LOOK}_{SEED}&quot;
+Image.fromarray(img, &quot;RGBA&quot;).save(name + &quot;.png&quot;)
+bg = Image.new(&quot;RGBA&quot;, (W, H), LAKE + (255,))
+bg.alpha_composite(Image.fromarray(img, &quot;RGBA&quot;))
+bg.resize((W * 4, H * 4), Image.NEAREST).save(name + &quot;_preview.png&quot;)
+print(&quot;wrote&quot;, name + &quot;.png&quot;)
+</code></pre>
+
+<footer class="article-footer">
+      <a href="/blog/" class="back-link">← Back to Blog</a>
+      <div class="article-share">
+        <a href="https://twitter.com/intent/tweet?text=Drawing%20the%20Lake%20Pools&url=https%3A%2F%2Fopenmeadowgames.com%2Fblog%2Fdrawing-lake-pools.html" target="_blank" rel="noopener" class="share-link">Share on X</a>
+        <a href="https://bsky.app/intent/compose?text=Drawing%20the%20Lake%20Pools%20https%3A%2F%2Fopenmeadowgames.com%2Fblog%2Fdrawing-lake-pools.html" target="_blank" rel="noopener" class="share-link">Share on Bluesky</a>
+        <button class="share-link" onclick="navigator.clipboard.writeText('https://openmeadowgames.com/blog/drawing-lake-pools.html').then(() => { this.textContent = 'Link Copied!'; setTimeout(() => this.textContent = 'Copy Link', 1500); })">Copy Link</button>
+      </div>
+    </footer>
+  </div>
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>Open Meadow Games</span> — Vancouver, British Columbia, Canada. All rights reserved.</p>
+  <p style="margin-top:0.5rem;font-size:0.72rem;opacity:0.75;">All artwork, videos, screenshots, and text on this site, including all game content shown, are the property of Open Meadow Games and may not be reproduced or redistributed without written permission.</p>
+</footer>
+
+</body>
+</html>

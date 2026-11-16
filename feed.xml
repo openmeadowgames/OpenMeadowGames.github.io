@@ -9,6 +9,22 @@
   <atom:link href="https://openmeadowgames.com/feed.xml" rel="self" type="application/rss+xml"/>
 
   <item>
+    <title>Drawing the Lake Pools</title>
+    <link>https://openmeadowgames.com/blog/drawing-lake-pools.html</link>
+    <guid>https://openmeadowgames.com/blog/drawing-lake-pools.html</guid>
+    <pubDate>Mon, 16 Nov 2026 14:10:00 -0800</pubDate>
+    <description>How I draw the deep pools in the lakes, in six steps, with the script.</description>
+  </item>
+
+  <item>
+    <title>Deep Pools in the Lakes</title>
+    <link>https://openmeadowgames.com/blog/lake-pools.html</link>
+    <guid>https://openmeadowgames.com/blog/lake-pools.html</guid>
+    <pubDate>Mon, 16 Nov 2026 14:00:00 -0800</pubDate>
+    <description>I redrew the deep spots in Beaver Lake and Lost Lagoon.</description>
+  </item>
+
+  <item>
     <title>The Fishing Reel</title>
     <link>https://openmeadowgames.com/blog/fishing-reel.html</link>
     <guid>https://openmeadowgames.com/blog/fishing-reel.html</guid>
